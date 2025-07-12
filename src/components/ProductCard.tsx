@@ -168,7 +168,7 @@ export function ProductCard({ product, onViewDetails }: ProductCardProps) {
         {/* Product Image */}
         <div className="relative h-56 overflow-hidden">
           <Image
-            src={product.image || "/placeholder.svg"}
+             src={product.images?.[0] || "/placeholder.svg"}
             alt={product.name}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -235,7 +235,7 @@ export function ProductCard({ product, onViewDetails }: ProductCardProps) {
       </div>
 
       {/* Buttons Section */}
-      <div className="px-4 pb-4 flex flex-col gap-2 mt-auto">
+      <div className="px-2 pb-4 flex flex-col gap-2 mt-auto">
         <div className="flex gap-2">
           <Button
             onClick={handleAddToCart}

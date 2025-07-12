@@ -178,7 +178,7 @@ export default function Component() {
                     Message Sent!
                   </div>
                 ) : (
-                  <div className="flex items-center gap-2 mt-1">
+                  <div className="flex items-center gap-2">
                     <Send className="w-4 h-4" />
                     Send Message
                   </div>
