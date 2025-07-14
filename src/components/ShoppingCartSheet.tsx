@@ -4,7 +4,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ShoppingCart, Plus, Minus, Trash2, CreditCard } from "lucide-react"
-import Image from "next/image"
+//import Image from "next/image"
 import { useCart } from "@/context/CartContext"
 
 export function ShoppingCartSheet() {
@@ -59,13 +59,13 @@ export function ShoppingCartSheet() {
                 {state.items.map((item) => (
                   <div key={item.id} className="flex gap-4 p-4 border rounded-lg">
                     <div className="relative w-16 h-16 flex-shrink-0">
-                      <Image
+                      {/* <Image
                         src={item.image || "/placeholder.svg"}
                         alt={item.name}
                         fill
                         className="object-cover rounded"
                         sizes="64px"
-                      />
+                      /> */}
                     </div>
 
                     <div className="flex-1 min-w-0">

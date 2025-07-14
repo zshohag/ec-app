@@ -38,11 +38,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} font-[var(--font-poppins)]`}
         suppressHydrationWarning
       >
-        <CartProvider>
-          <Navbar />
-          {children}
-          <Footer/>
-        </CartProvider>
+     
+          <CartProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </CartProvider>
       </body>
     </html>
   );
