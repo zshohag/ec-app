@@ -829,9 +829,9 @@ export const products: Product[] = [
     name: "Hair Dryer",
     price: 59.99,
     images: [
-      "/images/Hair Dryer1.jpg",
-      "/images/Hair Dryer2.jpg",
-      "/images/Hair Dryer3.jpg",
+      "/images/Hair Dryer1.png",
+      "/images/Hair Dryer2.png",
+      "/images/Hair Dryer3.png",
     ],
     category: "health-beauty",
     description: "Professional ionic hair dryer with multiple heat settings.",
