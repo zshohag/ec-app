@@ -7,7 +7,7 @@ export default function AboutPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-yellow-100 to-orange-200 py-16 px-4 text-center">
+      <section className=" py-16 px-4 text-center">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
             🛍️ Welcome to ShopHub
