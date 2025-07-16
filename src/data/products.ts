@@ -736,7 +736,7 @@ export const products: Product[] = [
   },
   {
     id: "2",
-    name: "Herbal Shampoo",
+    name: "Herbal Hair Shampoo",
     price: 18.5,
     images: [
       "https://s.alicdn.com/@sc04/kf/H1941ee79b0934c7997a561e9a606fde53.jpg_720x720q50.jpg",
@@ -830,8 +830,8 @@ export const products: Product[] = [
     price: 59.99,
     images: [
       "/images/Hair Dryer1.png",
-      "/images/Hair Dryer2.png",
-      "/images/Hair Dryer3.png",
+      "/images/Hair Dryer2.jpg",
+      "/images/Hair Dryer3.jpg",
     ],
     category: "health-beauty",
     description: "Professional ionic hair dryer with multiple heat settings.",
