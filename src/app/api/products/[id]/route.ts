@@ -221,26 +221,39 @@ export async function GET(
   }
 }
 
+
+
+
+
+
+
+
+
 export async function PUT(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    await connectMongoDB();
+    const { id } = await params;
     const body = await req.json();
-    const updatedProduct = await Product.findByIdAndUpdate(params.id, body, {
-      new: true,
-    });
+    
+    await connectMongoDB();
+    
+    const updatedProduct = await Product.findOneAndUpdate(
+      { id: id }, 
+      body, 
+      { new: true }
+    );
+    
     if (!updatedProduct) {
-      return NextResponse.json(
-        { message: "Product not found" },
-        { status: 404 }
-      );
+      return NextResponse.json({ message: "Product not found" }, { status: 404 });
     }
+    
     return NextResponse.json(updatedProduct);
   } catch (err) {
+    console.error('PUT Error:', err);
     return NextResponse.json(
-      { message: "Error updating product", error: err },
+      { message: "Error updating product", error: err instanceof Error ? err.message : 'Unknown error' }, 
       { status: 500 }
     );
   }
@@ -248,26 +261,80 @@ export async function PUT(
 
 export async function DELETE(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
+    
     await connectMongoDB();
-    const deletedProduct = await Product.findByIdAndDelete(params.id);
+    
+    const deletedProduct = await Product.findOneAndDelete({ id: id });
+    
     if (!deletedProduct) {
-      return NextResponse.json(
-        { message: "Product not found" },
-        { status: 404 }
-      );
+      return NextResponse.json({ message: "Product not found" }, { status: 404 });
     }
-    return NextResponse.json({ message: "Product deleted" });
+    
+    return NextResponse.json({ message: "Product deleted successfully" });
   } catch (err) {
+    console.error('DELETE Error:', err);
     return NextResponse.json(
-      { message: "Error deleting product", error: err },
+      { message: "Error deleting product", error: err instanceof Error ? err.message : 'Unknown error' }, 
       { status: 500 }
     );
   }
 }
 
+// export async function PUT(
+//   req: Request,
+//   { params }: { params: { id: string } }
+// ) {
+//   try {
+//     await connectMongoDB();
+//     const body = await req.json();
+//     const updatedProduct = await Product.findByIdAndUpdate(params.id, body, {
+//       new: true,
+//     });
+//     if (!updatedProduct) {
+//       return NextResponse.json(
+//         { message: "Product not found" },
+//         { status: 404 }
+//       );
+//     }
+//     return NextResponse.json(updatedProduct);
+//   } catch (err) {
+//     return NextResponse.json(
+//       { message: "Error updating product", error: err },
+//       { status: 500 }
+//     );
+//   }
+// }
+
+// export async function DELETE(
+//   req: Request,
+//   { params }: { params: { id: string } }
+// ) {
+//   try {
+//     await connectMongoDB();
+//     const deletedProduct = await Product.findByIdAndDelete(params.id);
+//     if (!deletedProduct) {
+//       return NextResponse.json(
+//         { message: "Product not found" },
+//         { status: 404 }
+//       );
+//     }
+//     return NextResponse.json({ message: "Product deleted" });
+//   } catch (err) {
+//     return NextResponse.json(
+//       { message: "Error deleting product", error: err },
+//       { status: 500 }
+//     );
+//   }
+// }
+
+
+
+
+//////////////////////////////
 // import { NextResponse } from "next/server";
 // import { connectMongoDB } from "@/lib/mongodb";
 // import Product from "@/models/Product";
