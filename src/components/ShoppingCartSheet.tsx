@@ -4,7 +4,6 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ShoppingCart, Plus, Minus, Trash2, CreditCard } from "lucide-react"
-//import Image from "next/image"
 import { useCart } from "@/context/CartContext"
 
 export function ShoppingCartSheet() {

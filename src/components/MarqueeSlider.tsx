@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Marquee } from "@/components/magicui/marquee";
+import Image from "next/image";
 
 const reviews = [
   {
@@ -54,18 +55,24 @@ const ReviewCard = ({
   body: string;
 }) => {
   return (
-
     <figure
       className={cn(
         "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
         // light styles
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         // dark styles
-        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
+        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
       )}
     >
       <div className="flex flex-row items-center gap-2">
-        <img className="rounded-full" width="32" height="32" alt="" src={img} />
+        {/* <img className="rounded-full" width="32" height="32" alt="" src={img} /> */}
+        <Image
+          src={img}
+          alt="User avatar"
+          width={32}
+          height={32}
+          className="rounded-full"
+        />
         <div className="flex flex-col">
           <figcaption className="text-sm font-medium dark:text-white">
             {name}
@@ -78,7 +85,7 @@ const ReviewCard = ({
   );
 };
 
-export  function MarqueeSlider() {
+export function MarqueeSlider() {
   return (
     <div className="relative flex max-w-7xl w-full flex-col items-center justify-center overflow-hidden mb-14 mt-14  ">
       <div className=" mx-auto px-4 text-center mb-8">
@@ -90,8 +97,6 @@ export  function MarqueeSlider() {
         </p>
       </div>
 
-
-
       <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review) => (
           <ReviewCard key={review.username} {...review} />
@@ -102,7 +107,6 @@ export  function MarqueeSlider() {
     </div>
   );
 }
-
 
 // "use client";
 
@@ -145,7 +149,6 @@ export  function MarqueeSlider() {
 // //   },
 // // ];
 
-
 // const partners = [
 //   {
 //     name: "Jack",
@@ -184,8 +187,6 @@ export  function MarqueeSlider() {
 //     img: "https://avatar.vercel.sh/james",
 //   },
 // ];
-
-
 
 // const MarqueeCard = ({ logo, name }: { logo: string; name: string }) => (
 //   <div

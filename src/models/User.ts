@@ -1,23 +1,45 @@
 // models/User.ts
-import mongoose, { Schema, Document, models } from 'mongoose';
+// import mongoose, { Schema, Document, models } from 'mongoose';
 
-export interface IUser extends Document {
-  name: string;
-  email: string;
-  image?: string;
-  role?: string;
-  createdAt?: Date;
-}
+// export interface IUser extends Document {
+//   name: string;
+//   email: string;
+//   image?: string;
+//   role?: string;
+//   createdAt?: Date;
+// }
 
-const UserSchema: Schema = new Schema<IUser>({
+// const UserSchema: Schema = new Schema<IUser>({
+//   name: String,
+//   email: { type: String, required: true, unique: true },
+//   image: String,
+//   role: { type: String, default: 'user' },
+//   createdAt: { type: Date, default: Date.now },
+// });
+
+// export default models.User || mongoose.model<IUser>('User', UserSchema);
+
+//image: String,
+// /src/models/User.ts
+import  { Schema, model, models } from "mongoose";
+
+const userSchema = new Schema({
   name: String,
-  email: { type: String, required: true, unique: true },
-  image: String,
-  role: { type: String, default: 'user' },
-  createdAt: { type: Date, default: Date.now },
+  email: { type: String, unique: true },
+  
 });
 
-export default models.User || mongoose.model<IUser>('User', UserSchema);
+const User = models.User || model("User", userSchema);
+export default User;
+
+
+
+
+
+
+
+
+
 
 // // models/User.ts
 // import mongoose, { Schema, Document, models, Model } from 'mongoose';
