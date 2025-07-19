@@ -105,8 +105,8 @@ export default function CartPage() {
                 <div className="flex gap-4 p-6">
                   {/* Product Image */}
                   <div className="relative w-24 h-24 rounded-lg overflow-hidden bg-gray-100">
-                    <Image
-                      src={item.image}
+                    <Image  
+                      src={item.image || "/placeholder.png"} 
                       alt={item.name}
                       fill
                       className="object-cover"

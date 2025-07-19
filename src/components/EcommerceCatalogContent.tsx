@@ -584,9 +584,7 @@ import { CategorySidebar } from "./CategorySidebar";
 import { ProductCard } from "./ProductCard";
 import { ProductDetailsModal } from "./ProductDetailsModal";
 import { categories } from "@/data/products";
-import { CartProvider } from "@/context/CartContext";
-//import { useProducts } from "@/hooks/useProductQuery";
-import { Product } from "@/types/product";
+import { Product } from "@/types/types";
 import { useProducts } from "@/lib/api/products";
 
 function EcommerceCatalogContent() {
@@ -756,8 +754,8 @@ function EcommerceCatalogContent() {
 
 export default function EcommerceCatalog() {
   return (
-    <CartProvider>
+    <>
       <EcommerceCatalogContent />
-    </CartProvider>
+    </>
   );
 }

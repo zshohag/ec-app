@@ -381,7 +381,8 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { CartItem } from "@/lib/store/slices/cartSlice";
+import { CartItem } from "@/types/order";
+//import { CartItem } from "@/lib/store/slices/cartSlice";
 
 export default function OrderConfirmationPage() {
   const { currentOrder } = useAppSelector((state) => state.order);

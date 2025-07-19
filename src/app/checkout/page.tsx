@@ -439,6 +439,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { toast } from "sonner";
 import { useSession } from "next-auth/react";
+import StripeCheckoutButton from "@/components/StripeCheckoutButton";
+import PaymentMethods from "@/components/Payment-methods";
 
 export default function CheckoutPage() {
   const router = useRouter();
@@ -749,7 +751,8 @@ useEffect(() => {
             </Card>
 
             {/* Payment Method */}
-            <Card>
+              <PaymentMethods />
+            {/* <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <CreditCard className="w-5 h-5" />
@@ -787,7 +790,12 @@ useEffect(() => {
                   </div>
                 </RadioGroup>
               </CardContent>
-            </Card>
+
+               <StripeCheckoutButton
+        items={items}
+        email={session?.user?.email || ""}
+      />
+            </Card> */}
           </div>
 
           {/* Right Column - Order Summary */}

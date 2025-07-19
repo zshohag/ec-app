@@ -1,19 +1,8 @@
 // lib/store/slices/orderSlice.ts
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { CartItem } from "./cartSlice";
-import { ShippingAddress } from "@/types/order";
 
-// export interface ShippingAddress {
-//   firstName: string;
-//   lastName: string;
-//   email: string;
-//   phone: string;
-//   address: string;
-//   city: string;
-//   state: string;
-//   zipCode: string;
-//   country: string;
-// }
+import { CartItem, ShippingAddress } from "@/types/types";
+
 
 export interface Order {
   _id?: string;

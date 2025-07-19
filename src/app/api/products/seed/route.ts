@@ -1,7 +1,7 @@
 import { connectMongoDB } from "@/lib/mongodb";
+import { NextResponse } from "next/server";
 import Product from "@/models/Product";
 import { products } from "@/data/products";
-import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
@@ -14,3 +14,6 @@ export async function GET() {
     return NextResponse.json({ error: "Failed to seed" }, { status: 500 });
   }
 }
+
+
+//http://localhost:3000/api/products/seed

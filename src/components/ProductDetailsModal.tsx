@@ -15,7 +15,7 @@ import {
   Check
 } from "lucide-react";
 import Image from "next/image";
-import { useCart } from "@/context/CartContext";
+// import { useCart } from "@/context/CartContext";
 
 interface ProductDetailsModalProps {
   product: Product | null;
@@ -28,13 +28,13 @@ export function ProductDetailsModal({
   isOpen,
   onClose,
 }: ProductDetailsModalProps) {
-  const { dispatch } = useCart();
+  //const { dispatch } = useCart();
 
   if (!product) return null;
 
-  const handleAddToCart = () => {
-    dispatch({ type: "ADD_ITEM", payload: product });
-  };
+  // const handleAddToCart = () => {
+  //   dispatch({ type: "ADD_ITEM", payload: product });
+  // };
 
   const discount = product.originalPrice
     ? Math.round(
@@ -140,7 +140,7 @@ export function ProductDetailsModal({
 
             {/* Add to Cart */}
             <Button
-              onClick={handleAddToCart}
+              // onClick={handleAddToCart}
               disabled={!product.inStock}
               size="sm"
               className="w-full text-lg py-4 mt-2"

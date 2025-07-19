@@ -1,6 +1,6 @@
 import { Heart, Baby, Home, Soup, Paintbrush2 } from "lucide-react";
 
-import type { Product, Category } from "../types/product";
+import type { Product, Category } from "../types/types";
 
 export const products: Product[] = [
   // Health & Beauty (10 products)
@@ -14,6 +14,7 @@ export const products: Product[] = [
       "https://s.alicdn.com/@sc04/kf/A538f12769b6842d9a1f5795561f26c9ba.jpg_720x720q50.jpg",
     ],
     category: "health-beauty",
+    quantity: 44,
     description: "Brightening Vitamin C serum for radiant skin.",
     features: [
       "Brightening",
@@ -37,6 +38,7 @@ export const products: Product[] = [
       "https://s.alicdn.com/@sc04/kf/Haf29a74a237f426aa052087af4e6cba0V.jpg_720x720q50.jpg",
     ],
     category: "health-beauty",
+    quantity: 44,
     description: "Sulfate-free herbal shampoo for soft and shiny hair.",
     features: [
       "Sulfate-free",
@@ -60,6 +62,7 @@ export const products: Product[] = [
       "https://i.ibb.co/7tSG5z4r/Electric-Toothbrush3.jpg",
     ],
     category: "health-beauty",
+    quantity: 37,
     description: "Rechargeable electric toothbrush with multiple modes.",
     features: [
       "Rechargeable",
@@ -82,6 +85,7 @@ export const products: Product[] = [
       "/placeholder.svg?height=400&width=400&text=Embroidery+Hoops+2",
     ],
     category: "health-beauty",
+    quantity: 30,
     description: "Lightweight daily face moisturizer with SPF.",
     features: [
       "SPF 30",
@@ -104,6 +108,7 @@ export const products: Product[] = [
       "https://s.alicdn.com/@sc04/kf/Hc752e628be8f4f0baa6db95aa7fcd583a.jpg_720x720q50.jpg",
     ],
     category: "health-beauty",
+    quantity: 30,
     description: "6-piece essential oil set for aromatherapy.",
     features: [
       "6 oils",
@@ -127,6 +132,7 @@ export const products: Product[] = [
       "https://i.ibb.co/RpkY9WTD/Hair-Dryer3.jpg",
     ],
     category: "health-beauty",
+    quantity: 37,
     description: "Professional ionic hair dryer with multiple heat settings.",
     features: [
       "Ionic tech",
@@ -150,6 +156,7 @@ export const products: Product[] = [
       "https://i.ibb.co/HDVqPcdP/Nail-Kit3.jpg",
     ],
     category: "health-beauty",
+    quantity: 37,
     description: "Complete manicure and pedicure kit.",
     features: [
       "10 pieces",
@@ -173,6 +180,7 @@ export const products: Product[] = [
       "https://i.ibb.co/G3MY0sbN/Lip-Balm3.jpg",
     ],
     category: "health-beauty",
+    quantity: 44,
     description: "Moisturizing lip balm with vitamin E.",
     features: [
       "Vitamin E",
@@ -196,6 +204,7 @@ export const products: Product[] = [
       "https://i.ibb.co/qYXwVZ5h/Facial-Cleanser3.jpg",
     ],
     category: "health-beauty",
+    quantity: 37,
     description: "Gentle cleanser for daily use.",
     features: [
       "Gentle",
@@ -219,6 +228,7 @@ export const products: Product[] = [
       "/images/Body Scrub3.jpg",
     ],
     category: "health-beauty",
+    quantity: 44,
     description: "Exfoliating body scrub with natural ingredients.",
     features: [
       "Sugar scrub",
@@ -244,6 +254,7 @@ export const products: Product[] = [
       "https://i.ibb.co/XxL3dYGJ/Baby-Diapers3.jpg",
     ],
     category: "baby",
+    quantity: 54,
     description: "Ultra-soft baby diapers with leak protection.",
     features: [
       "Leak-proof",
@@ -267,6 +278,7 @@ export const products: Product[] = [
       "https://i.ibb.co/QjCJQVHN/Infant-Formula3.jpg",
     ],
     category: "baby",
+    quantity: 54,
     description: "Nutrient-rich formula for newborns.",
     features: [
       "UL-certified",
@@ -289,6 +301,7 @@ export const products: Product[] = [
       "/placeholder.svg?height=400&width=400&text=Embroidery+Hoops+2",
     ],
     category: "baby",
+    quantity: 54,
     description: "Lightweight foldable baby stroller.",
     features: [
       "Foldable",
@@ -312,6 +325,7 @@ export const products: Product[] = [
       "https://i.ibb.co/8n963X10/Baby-Lotion3.png",
     ],
     category: "baby",
+    quantity: 54,
     description: "Gentle baby lotion with aloe vera.",
     features: [
       "Aloe vera",
@@ -335,6 +349,7 @@ export const products: Product[] = [
       "https://i.ibb.co/9m4X3y4B/Teething-Toys-Set3.jpg",
     ],
     category: "baby",
+    quantity: 54,
     description: "Colorful teething toys made from BPA-free silicone.",
     features: [
       "BPA-free",
@@ -358,6 +373,7 @@ export const products: Product[] = [
       "https://i.ibb.co/1GQ3TFD1/Crib-Mobile3.jpg",
     ],
     category: "baby",
+    quantity: 54,
     description: "Soothing crib mobile with music and lights.",
     features: [
       "Music player",
@@ -381,6 +397,7 @@ export const products: Product[] = [
       "https://i.ibb.co/RpjgjxGQ/Soft-Baby-Blanket3.jpg",
     ],
     category: "baby",
+    quantity: 54,
     description: "Ultra-soft organic cotton baby blanket.",
     features: [
       "Organic cotton",
@@ -398,10 +415,9 @@ export const products: Product[] = [
     id: "18",
     name: "Baby Monitor",
     price: 59.99,
-    images: [
-
-    ],
+    images: [],
     category: "baby",
+    quantity: 54,
     description: "Video baby monitor with night vision.",
     features: [
       "Night vision",
@@ -427,6 +443,7 @@ export const products: Product[] = [
       "/images/Stainless Steel Chef Knife3.png",
     ],
     category: "home-kitchen",
+    quantity: 66,
     description: "High-carbon stainless chef knife with ergonomic handle.",
     features: [
       "Rust-resistant",
@@ -450,6 +467,7 @@ export const products: Product[] = [
       "https://i.ibb.co/5hNVwXzK/Cast-Iron-Skillet3.jpg",
     ],
     category: "home-kitchen",
+    quantity: 66,
     description: "Pre-seasoned cast iron skillet for versatile cooking.",
     features: [
       "Non-stick surface",
@@ -473,6 +491,7 @@ export const products: Product[] = [
       "https://i.ibb.co/zVz3NPYj/Ceramic-Dinnerware-Set3.jpg",
     ],
     category: "home-kitchen",
+    quantity: 66,
     description: "16-piece ceramic dinnerware set for 4 people.",
     features: [
       "Microwave safe",
@@ -496,6 +515,7 @@ export const products: Product[] = [
       "https://i.ibb.co/XZSryXTh/Blender-with-Glass-Jar3.jpg",
     ],
     category: "home-kitchen",
+    quantity: 66,
     description: "High-speed blender with 6-cup glass jar.",
     features: [
       "1000W motor",
@@ -519,6 +539,7 @@ export const products: Product[] = [
       "https://i.ibb.co/v4pn3Ldh/Bamboo-Cutting-Board-Set3.jpg",
     ],
     category: "home-kitchen",
+    quantity: 66,
     description: "3-piece bamboo cutting board set with juice grooves.",
     features: [
       "Eco-friendly",
@@ -541,6 +562,7 @@ export const products: Product[] = [
       "/placeholder.svg?height=400&width=400&text=Embroidery+Hoops+2",
     ],
     category: "home-kitchen",
+    quantity: 66,
     description: "10-piece stainless steel cookware set with lids.",
     features: [
       "Tri-ply construction",
@@ -564,6 +586,7 @@ export const products: Product[] = [
       "https://i.ibb.co/gbnjRCsY/Coffee-Maker-with-Timer3.png",
     ],
     category: "home-kitchen",
+    quantity: 66,
     description: "12-cup programmable coffee maker with auto shut-off.",
     features: [
       "Programmable",
@@ -587,6 +610,7 @@ export const products: Product[] = [
       "https://i.ibb.co/6c3sYZB5/Silicone-Baking-Mat-Set3.jpg",
     ],
     category: "home-kitchen",
+    quantity: 66,
     description: "Non-stick silicone baking mats, set of 3.",
     features: [
       "Non-stick",
@@ -612,6 +636,7 @@ export const products: Product[] = [
       "https://i.ibb.co/zhJyZXCf/Organic-Fair-Trade-Coffee-Beans3.jpg",
     ],
     category: "grocery",
+    quantity: 75,
     description: "Premium organic coffee beans, sustainably sourced.",
     features: [
       "Fair-trade",
@@ -635,6 +660,7 @@ export const products: Product[] = [
       "https://i.ibb.co/SDVKVxSf/Organic-Honey3.jpg",
     ],
     category: "grocery",
+    quantity: 75,
     description: "Pure organic wildflower honey from local beekeepers.",
     features: [
       "100% pure",
@@ -658,6 +684,7 @@ export const products: Product[] = [
       "https://i.ibb.co/xtyYY5pf/Quinoa-Grain3.jpg",
     ],
     category: "grocery",
+    quantity: 75,
     description: "Premium white quinoa grain, protein-rich superfood.",
     features: [
       "Gluten-free",
@@ -681,6 +708,7 @@ export const products: Product[] = [
       "https://i.ibb.co/zhSD67FW/Extra-Virgin-Olive-Oil3.jpg",
     ],
     category: "grocery",
+    quantity: 75,
     description:
       "Cold-pressed extra virgin olive oil from Mediterranean olives.",
     features: [
@@ -705,6 +733,7 @@ export const products: Product[] = [
       "https://i.ibb.co/Q7PLvxVN/Himalayan-Pink-Salt3.jpg",
     ],
     category: "grocery",
+    quantity: 75,
     description: "Pure Himalayan pink salt, rich in minerals.",
     features: [
       "84 minerals",
@@ -722,10 +751,9 @@ export const products: Product[] = [
     id: "32",
     name: "Organic Green Tea 100 bags",
     price: 14.99,
-    images: [
-  
-    ],
+    images: [],
     category: "grocery",
+    quantity: 75,
     description: "Premium organic green tea bags with antioxidants.",
     features: [
       "Organic certified",
@@ -749,6 +777,7 @@ export const products: Product[] = [
       "https://i.ibb.co/fV8XpK5P/Almond-Butter3.jpg",
     ],
     category: "grocery",
+    quantity: 75,
     description: "Smooth almond butter made from roasted almonds.",
     features: [
       "No added sugar",
@@ -772,6 +801,7 @@ export const products: Product[] = [
       "https://i.ibb.co/274Xr3sw/Coconut-Oil3.jpg",
     ],
     category: "grocery",
+    quantity: 75,
     description: "Virgin coconut oil for cooking and beauty care.",
     features: [
       "Virgin quality",
@@ -797,6 +827,7 @@ export const products: Product[] = [
       "https://i.ibb.co/0yCz3fGJ/12-Color-Acrylic-Paint-Set3.jpg",
     ],
     category: "art-craft",
+    quantity: 74,
     description: "Vivid acrylic paints for canvas, wood, pottery.",
     features: [
       "Quick dry",
@@ -820,6 +851,7 @@ export const products: Product[] = [
       "https://i.ibb.co/cXXqV46Y/Professional-Brush-Set3.jpg",
     ],
     category: "art-craft",
+    quantity: 74,
     description: "15-piece professional artist brush set with case.",
     features: [
       "Natural bristles",
@@ -843,6 +875,7 @@ export const products: Product[] = [
       "https://i.ibb.co/ksjZxg8X/Watercolor-Paper-Pad3.png",
     ],
     category: "art-craft",
+    quantity: 74,
     description: "Premium watercolor paper pad, 300gsm, 20 sheets.",
     features: [
       "300gsm weight",
@@ -866,6 +899,7 @@ export const products: Product[] = [
       "https://i.ibb.co/4nkp9HCN/Colored-Pencil-Set-72-Colors3.jpg",
     ],
     category: "art-craft",
+    quantity: 74,
     description: "Professional colored pencils with vibrant colors.",
     features: [
       "72 colors",
@@ -889,6 +923,7 @@ export const products: Product[] = [
       "https://i.ibb.co/dqcDnV6/Canvas-Boards-8x10-Pack-of-103.jpg",
     ],
     category: "art-craft",
+    quantity: 74,
     description: "Pre-primed canvas boards ready for painting.",
     features: [
       "Pre-primed",
@@ -911,6 +946,7 @@ export const products: Product[] = [
       "/placeholder.svg?height=400&width=400&text=Embroidery+Hoops+2",
     ],
     category: "art-craft",
+    quantity: 74,
     description: "5-piece craft scissors set with decorative edges.",
     features: [
       "5 different edges",
@@ -934,6 +970,7 @@ export const products: Product[] = [
       "https://i.ibb.co/1GXJnR5D/Polymer-Clay-Starter-Kit3.jpg",
     ],
     category: "art-craft",
+    quantity: 74,
     description: "Complete polymer clay kit with tools and colors.",
     features: [
       "8 clay colors",
@@ -957,6 +994,7 @@ export const products: Product[] = [
       "https://i.ibb.co/QF4hK3tn/Embroidery-Hoop-Set3.jpg",
     ],
     category: "art-craft",
+    quantity: 74,
     description: "Bamboo embroidery hoops in 4 different sizes.",
     features: [
       "4 sizes",
