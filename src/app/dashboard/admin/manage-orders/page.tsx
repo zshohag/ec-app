@@ -13,7 +13,7 @@ import { useQuery } from '@tanstack/react-query';
 import { format } from 'date-fns';
 import { AlertCircle, Loader2 } from 'lucide-react';
 import Image from 'next/image';
-import { OrderType, CartItem } from '@/types/order';
+import { Order, CartItem } from '@/types/types';
 import { formatCurrency } from '@/lib/utils';
 
 export default function ManageOrdersPage() {
@@ -51,7 +51,7 @@ export default function ManageOrdersPage() {
         <p className="text-gray-600">No orders found.</p>
       ) : (
         <div className="space-y-4">
-          {orders.map((order: OrderType) => (
+          {orders.map((order: Order) => (
             <div
               key={order.id}
               className="border rounded-xl p-4 shadow-sm bg-white"

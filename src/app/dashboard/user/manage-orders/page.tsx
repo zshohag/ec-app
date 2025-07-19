@@ -14,7 +14,7 @@ import { formatCurrency } from '@/lib/utils';
 import { Loader2, AlertCircle } from 'lucide-react';
 import { useUserOrders } from '@/lib/hooks/useUserOrders';
 import Image from 'next/image';
-import { OrderType, CartItem } from '@/types/order';
+import { Order, CartItem } from '@/types/types';
 
 export default function UserOrdersPage() {
   const { data: orders, isLoading, isError } = useUserOrders();
@@ -44,7 +44,7 @@ export default function UserOrdersPage() {
         <p className="text-gray-600">You have no orders yet.</p>
       ) : (
         <div className="space-y-4">
-          {orders.map((order: OrderType) => (
+          {orders.map((order: Order) => (
             <div
               key={order.id}
               className="border rounded-xl p-4 shadow-sm bg-white"

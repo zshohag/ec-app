@@ -235,22 +235,6 @@ const cartSlice = createSlice({
       cartSlice.caseReducers.calculateTotals(state);
     },
 
-    // Alternative Option 2: Keep Omit but make quantity optional in the payload
-    // addToCart: (state, action: PayloadAction<Omit<CartItem, 'quantity'> & { quantity?: number }>) => {
-    //   const existingItem = state.items.find(item => item.id === action.payload.id);
-    //
-    //   if (existingItem) {
-    //     existingItem.quantity += action.payload.quantity || 1;
-    //   } else {
-    //     state.items.push({
-    //       ...action.payload,
-    //       quantity: action.payload.quantity || 1
-    //     });
-    //   }
-    //
-    //   cartSlice.caseReducers.calculateTotals(state);
-    // },
-
     removeFromCart: (state, action: PayloadAction<string>) => {
       state.items = state.items.filter((item) => item.id !== action.payload);
       cartSlice.caseReducers.calculateTotals(state);

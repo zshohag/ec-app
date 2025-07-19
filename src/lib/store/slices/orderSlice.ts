@@ -1,25 +1,8 @@
 // lib/store/slices/orderSlice.ts
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+//import { CartItem, Order, ShippingAddress } from "@/types/types";
 
-import { CartItem, ShippingAddress } from "@/types/types";
-
-
-export interface Order {
-  _id?: string;
-  id: string;
-  items: CartItem[];
-  total: number;
-  subtotal: number;
-  tax: number;
-  shipping: number;
-  shippingAddress: ShippingAddress;
-  paymentMethod: string;
-  status: "pending" | "processing" | "shipped" | "delivered" | "cancelled";
-  createdAt: string;
-  updatedAt: string;
-  estimatedDelivery?: string; // Optional field for estimated delivery date
-  discount?: number; // Optional field for discount amount
-}
+import { Order } from "@/types/types";
 
 interface OrderState {
   orders: Order[];
