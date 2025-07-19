@@ -1,65 +1,30 @@
-// models/User.ts
-// import mongoose, { Schema, Document, models } from 'mongoose';
+// /src/models/User.ts
 
-// export interface IUser extends Document {
-//   name: string;
-//   email: string;
-//   image?: string;
-//   role?: string;
-//   createdAt?: Date;
-// }
+// import { Schema, model, models } from "mongoose";
 
-// const UserSchema: Schema = new Schema<IUser>({
+// const userSchema = new Schema({
 //   name: String,
-//   email: { type: String, required: true, unique: true },
-//   image: String,
-//   role: { type: String, default: 'user' },
-//   createdAt: { type: Date, default: Date.now },
+//   email: { type: String, unique: true },
 // });
 
-// export default models.User || mongoose.model<IUser>('User', UserSchema);
+// const User = models.User || model("User", userSchema);
+// export default User;
 
-//image: String,
-// /src/models/User.ts
-import  { Schema, model, models } from "mongoose";
+// models/User.ts
+import { Schema, model, models } from "mongoose";
 
-const userSchema = new Schema({
-  name: String,
-  email: { type: String, unique: true },
-  
-});
+const userSchema = new Schema(
+  {
+    name: { type: String },
+    email: { type: String, unique: true },
+    role: {
+      type: String,
+      enum: ["user", "admin"],
+      default: "user", // ✅ Default role
+    },
+  },
+  { timestamps: true }
+);
 
 const User = models.User || model("User", userSchema);
 export default User;
-
-
-
-
-
-
-
-
-
-
-// // models/User.ts
-// import mongoose, { Schema, Document, models, Model } from 'mongoose';
-
-// export interface IUser extends Document {
-//   name: string;
-//   email: string;
-//   image?: string;
-//   role?: string;
-//   createdAt?: Date;
-// }
-
-// const UserSchema: Schema = new Schema<IUser>({
-//   name: { type: String, required: true },
-//   email: { type: String, required: true, unique: true },
-//   image: String,
-//   role: { type: String, default: 'user' },
-//   createdAt: { type: Date, default: Date.now },
-// });
-
-// const User: Model<IUser> = (models.User as Model<IUser>) || mongoose.model<IUser>('User', UserSchema);
-
-// export default User;

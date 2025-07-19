@@ -4,6 +4,8 @@
 // import { Navbar } from "@/components/shared/Navbar";
 // import { CartProvider } from "@/context/CartContext";
 // import { Footer } from "@/components/shared/Footer";
+// import { NextAuthProvider } from "@/providers/SessionProvider";
+// import { Providers as QueryProviders } from "@/providers/QueryProvider"; // your QueryClientProvider wrapper
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -38,12 +40,15 @@
 //         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} font-[var(--font-poppins)]`}
 //         suppressHydrationWarning
 //       >
-
-//           <CartProvider>
-//             <Navbar />
-//             {children}
-//             <Footer />
-//           </CartProvider>
+//         <NextAuthProvider>
+//           <QueryProviders>
+//             <CartProvider>
+//               <Navbar />
+//               {children}
+//               <Footer />
+//             </CartProvider>
+//           </QueryProviders>
+//         </NextAuthProvider>
 //       </body>
 //     </html>
 //   );
@@ -57,6 +62,7 @@ import { CartProvider } from "@/context/CartContext";
 import { Footer } from "@/components/shared/Footer";
 import { NextAuthProvider } from "@/providers/SessionProvider";
 import { Providers as QueryProviders } from "@/providers/QueryProvider"; // your QueryClientProvider wrapper
+import { ReduxProvider } from "@/providers/ReduxProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -93,14 +99,17 @@ export default function RootLayout({
       >
         <NextAuthProvider>
           <QueryProviders>
+            <ReduxProvider>
             <CartProvider>
               <Navbar />
               {children}
               <Footer />
             </CartProvider>
+            </ReduxProvider>
           </QueryProviders>
         </NextAuthProvider>
       </body>
     </html>
   );
 }
+
