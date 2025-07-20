@@ -615,7 +615,7 @@ const PaymentPage = () => {
   }
 
   return (
-    <div className="p-10">
+    <div className="p-10 max-w-7xl w-full ">
       <h2 className="text-xl mb-4">Pay with Card</h2>
       {loading && <p>Loading payment form...</p>}
       {error && <p className="text-red-500">{error}</p>}
