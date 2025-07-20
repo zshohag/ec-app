@@ -1,8 +1,8 @@
+
 // // app/order-confirmation/[id]/page.tsx
+
 // "use client";
 
-// //import { useEffect } from "react";
-// //import { useParams } from "next/navigation";
 // import { useAppSelector } from "@/lib/hooks/redux";
 // import { Button } from "@/components/ui/button";
 // import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -16,21 +16,14 @@
 //   MapPin,
 //   CreditCard,
 //   ArrowLeft,
-//   Download
+//   Download,
 // } from "lucide-react";
 // import Image from "next/image";
 // import Link from "next/link";
+// import { CartItem } from "@/types/types";
 
 // export default function OrderConfirmationPage() {
-//   //const { id } = useParams();
 //   const { currentOrder } = useAppSelector((state) => state.order);
-
-//   // You might want to fetch the order details here if not in state
-// //   useEffect(() => {
-// //     if (!currentOrder && id) {
-// //       dispatch(fetchOrderById(id as string));
-// //     }
-// //   }, [id, currentOrder]);
 
 //   if (!currentOrder) {
 //     return (
@@ -56,33 +49,33 @@
 
 //   const getStatusColor = (status: string) => {
 //     switch (status.toLowerCase()) {
-//       case 'confirmed':
-//         return 'bg-green-100 text-green-800';
-//       case 'processing':
-//         return 'bg-blue-100 text-blue-800';
-//       case 'shipped':
-//         return 'bg-purple-100 text-purple-800';
-//       case 'delivered':
-//         return 'bg-green-100 text-green-800';
+//       case "confirmed":
+//         return "bg-green-100 text-green-800";
+//       case "processing":
+//         return "bg-blue-100 text-blue-800";
+//       case "shipped":
+//         return "bg-purple-100 text-purple-800";
+//       case "delivered":
+//         return "bg-green-100 text-green-800";
 //       default:
-//         return 'bg-gray-100 text-gray-800';
+//         return "bg-gray-100 text-gray-800";
 //     }
 //   };
 
 //   const formatDate = (date: string | Date) => {
-//     return new Date(date).toLocaleDateString('en-US', {
-//       year: 'numeric',
-//       month: 'long',
-//       day: 'numeric',
-//       hour: '2-digit',
-//       minute: '2-digit'
+//     return new Date(date).toLocaleDateString("en-US", {
+//       year: "numeric",
+//       month: "long",
+//       day: "numeric",
+//       hour: "2-digit",
+//       minute: "2-digit",
 //     });
 //   };
 
 //   const formatCurrency = (amount: number) => {
-//     return new Intl.NumberFormat('en-US', {
-//       style: 'currency',
-//       currency: 'USD'
+//     return new Intl.NumberFormat("en-US", {
+//       style: "currency",
+//       currency: "USD",
 //     }).format(amount);
 //   };
 
@@ -109,7 +102,8 @@
 //               Order Confirmed!
 //             </h1>
 //             <p className="text-lg text-gray-600 mb-4">
-//               Thank you for your purchase. Your order has been received and is being processed.
+//               Thank you for your purchase. Your order has been received and is
+//               being processed.
 //             </p>
 //             <div className="flex items-center justify-center gap-4 text-sm text-gray-500">
 //               <span>Order #{currentOrder.id}</span>
@@ -138,9 +132,12 @@
 //                   {currentOrder.estimatedDelivery && (
 //                     <div className="flex items-center gap-2 text-sm text-gray-600">
 //                       <Truck className="w-4 h-4" />
-//                       <span>Est. delivery: {formatDate(currentOrder.estimatedDelivery)}</span>
+//                       <span>
+//                         Est. delivery:{" "}
+//                         {formatDate(currentOrder.estimatedDelivery)}
+//                       </span>
 //                     </div>
-//                   )}
+//                   )}  
 //                 </div>
 //               </CardContent>
 //             </Card>
@@ -152,8 +149,11 @@
 //               </CardHeader>
 //               <CardContent>
 //                 <div className="space-y-4">
-//                   {currentOrder.items.map((item: any) => (
-//                     <div key={item.id} className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+//                   {currentOrder.items.map((item: CartItem) => (
+//                     <div
+//                       key={item.id}
+//                       className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg"
+//                     >
 //                       <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center">
 //                         {item.image ? (
 //                           <Image
@@ -168,15 +168,12 @@
 //                         )}
 //                       </div>
 //                       <div className="flex-1">
-//                         <h3 className="font-semibold text-gray-900">{item.name}</h3>
+//                         <h3 className="font-semibold text-gray-900">
+//                           {item.name}
+//                         </h3>
 //                         <p className="text-sm text-gray-600">
 //                           Quantity: {item.quantity}
 //                         </p>
-//                         {item.variant && (
-//                           <p className="text-sm text-gray-600">
-//                             {item.variant}
-//                           </p>
-//                         )}
 //                       </div>
 //                       <div className="text-right">
 //                         <p className="font-semibold text-gray-900">
@@ -202,14 +199,25 @@
 //               </CardHeader>
 //               <CardContent>
 //                 <div className="space-y-2">
-//                   <p className="font-semibold">{currentOrder.shippingAddress.name}</p>
-//                   <p className="text-gray-600">{currentOrder.shippingAddress.street}</p>
-//                   <p className="text-gray-600">
-//                     {currentOrder.shippingAddress.city}, {currentOrder.shippingAddress.state} {currentOrder.shippingAddress.zipCode}
+//                   <p className="font-semibold">
+//                     {currentOrder.shippingAddress.firstName}{" "}
+//                     {currentOrder.shippingAddress.lastName}
 //                   </p>
-//                   <p className="text-gray-600">{currentOrder.shippingAddress.country}</p>
+//                   <p className="text-gray-600">
+//                     {currentOrder.shippingAddress.address}
+//                   </p>
+//                   <p className="text-gray-600">
+//                     {currentOrder.shippingAddress.city},{" "}
+//                     {currentOrder.shippingAddress.state}{" "}
+//                     {currentOrder.shippingAddress.zipCode}
+//                   </p>
+//                   <p className="text-gray-600">
+//                     {currentOrder.shippingAddress.country}
+//                   </p>
 //                   {currentOrder.shippingAddress.phone && (
-//                     <p className="text-gray-600">Phone: {currentOrder.shippingAddress.phone}</p>
+//                     <p className="text-gray-600">
+//                       Phone: {currentOrder.shippingAddress.phone}
+//                     </p>
 //                   )}
 //                 </div>
 //               </CardContent>
@@ -236,12 +244,21 @@
 //                   <span>Tax</span>
 //                   <span>{formatCurrency(currentOrder.tax)}</span>
 //                 </div>
-//                 {currentOrder.discount > 0 && (
+//                 {/* {currentOrder.discount > 0 && (
 //                   <div className="flex justify-between text-sm text-green-600">
 //                     <span>Discount</span>
 //                     <span>-{formatCurrency(currentOrder.discount)}</span>
 //                   </div>
-//                 )}
+//                 )}  */}
+
+//               {typeof currentOrder.discount === "number" &&
+//                   currentOrder.discount > 0 && (
+//                     <div className="flex justify-between text-sm text-green-600">
+//                       <span>Discount</span>
+//                       <span>-{formatCurrency(currentOrder.discount)}</span>
+//                     </div>
+//                   )} 
+
 //                 <div className="border-t pt-4">
 //                   <div className="flex justify-between font-semibold text-lg">
 //                     <span>Total</span>
@@ -264,17 +281,19 @@
 //                   <div className="w-8 h-8 bg-gray-100 rounded flex items-center justify-center">
 //                     <CreditCard className="w-4 h-4 text-gray-600" />
 //                   </div>
-//                   <div>
+//                   {/* <div>
 //                     <p className="font-medium">
-//                       {currentOrder.paymentMethod?.type || 'Credit Card'}
+//                       {typeof currentOrder.paymentMethod === "string"
+//                         ? currentOrder.paymentMethod
+//                         : currentOrder.paymentMethod?.type || "Credit Card"}
 //                     </p>
 //                     <p className="text-sm text-gray-600">
-//                       {currentOrder.paymentMethod?.last4
+//                       {typeof currentOrder.paymentMethod === "object" &&
+//                       currentOrder.paymentMethod?.last4
 //                         ? `**** **** **** ${currentOrder.paymentMethod.last4}`
-//                         : 'Payment processed successfully'
-//                       }
+//                         : "Payment processed successfully"}
 //                     </p>
-//                   </div>
+//                   </div> */}
 //                 </div>
 //               </CardContent>
 //             </Card>
@@ -310,27 +329,27 @@
 //               </CardHeader>
 //               <CardContent>
 //                 <div className="space-y-3 text-sm">
-//                   <div className="flex items-start gap-3">
-//                     <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-//                     <div>
-//                       <p className="font-medium">Order Confirmation</p>
-//                       <p className="text-gray-600">You&apos;ll receive an email confirmation shortly.</p>
-//                     </div>
-//                   </div>
-//                   <div className="flex items-start gap-3">
-//                     <div className="w-2 h-2 bg-gray-300 rounded-full mt-2"></div>
-//                     <div>
-//                       <p className="font-medium">Processing</p>
-//                       <p className="text-gray-600">We&apos;ll prepare your order for shipping.</p>
-//                     </div>
-//                   </div>
-//                   <div className="flex items-start gap-3">
-//                     <div className="w-2 h-2 bg-gray-300 rounded-full mt-2"></div>
-//                     <div>
-//                       <p className="font-medium">Shipping</p>
-//                       <p className="text-gray-600">You&apos;ll get tracking info when your order ships.</p>
-//                     </div>
-//                   </div>
+//                   {["Order Confirmation", "Processing", "Shipping"].map(
+//                     (step, index) => (
+//                       <div key={step} className="flex items-start gap-3">
+//                         <div
+//                           className={`w-2 h-2 rounded-full mt-2 ${
+//                             index === 0 ? "bg-green-600" : "bg-gray-300"
+//                           }`}
+//                         ></div>
+//                         <div>
+//                           <p className="font-medium">{step}</p>
+//                           <p className="text-gray-600">
+//                             {step === "Order Confirmation"
+//                               ? "You'll receive an email confirmation shortly."
+//                               : step === "Processing"
+//                               ? "We'll prepare your order for shipping."
+//                               : "You'll get tracking info when your order ships."}
+//                           </p>
+//                         </div>
+//                       </div>
+//                     )
+//                   )}
 //                 </div>
 //               </CardContent>
 //             </Card>
@@ -359,7 +378,10 @@
 //   );
 // }
 
-//////
+/////new style 
+
+
+
 // app/order-confirmation/[id]/page.tsx
 
 "use client";
@@ -371,18 +393,14 @@ import { Badge } from "@/components/ui/badge";
 import {
   CheckCircle,
   Truck,
-  Mail,
-  Calendar,
   Package,
   MapPin,
   CreditCard,
   ArrowLeft,
-  Download,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { CartItem } from "@/types/order";
-//import { CartItem } from "@/lib/store/slices/cartSlice";
+import { CartItem } from "@/types/types";
 
 export default function OrderConfirmationPage() {
   const { currentOrder } = useAppSelector((state) => state.order);
@@ -606,12 +624,6 @@ export default function OrderConfirmationPage() {
                   <span>Tax</span>
                   <span>{formatCurrency(currentOrder.tax)}</span>
                 </div>
-                {/* {currentOrder.discount > 0 && (
-                  <div className="flex justify-between text-sm text-green-600">
-                    <span>Discount</span>
-                    <span>-{formatCurrency(currentOrder.discount)}</span>
-                  </div>
-                )}  */}
 
               {typeof currentOrder.discount === "number" &&
                   currentOrder.discount > 0 && (
@@ -643,75 +655,6 @@ export default function OrderConfirmationPage() {
                   <div className="w-8 h-8 bg-gray-100 rounded flex items-center justify-center">
                     <CreditCard className="w-4 h-4 text-gray-600" />
                   </div>
-                  {/* <div>
-                    <p className="font-medium">
-                      {typeof currentOrder.paymentMethod === "string"
-                        ? currentOrder.paymentMethod
-                        : currentOrder.paymentMethod?.type || "Credit Card"}
-                    </p>
-                    <p className="text-sm text-gray-600">
-                      {typeof currentOrder.paymentMethod === "object" &&
-                      currentOrder.paymentMethod?.last4
-                        ? `**** **** **** ${currentOrder.paymentMethod.last4}`
-                        : "Payment processed successfully"}
-                    </p>
-                  </div> */}
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Actions */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Order Actions</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <Button className="w-full" variant="outline">
-                  <Download className="w-4 h-4 mr-2" />
-                  Download Invoice
-                </Button>
-                <Button className="w-full" variant="outline">
-                  <Mail className="w-4 h-4 mr-2" />
-                  Email Order Details
-                </Button>
-                <Button className="w-full" variant="outline">
-                  <Truck className="w-4 h-4 mr-2" />
-                  Track Order
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Next Steps */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Calendar className="w-5 h-5" />
-                  What&apos;s Next?
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3 text-sm">
-                  {["Order Confirmation", "Processing", "Shipping"].map(
-                    (step, index) => (
-                      <div key={step} className="flex items-start gap-3">
-                        <div
-                          className={`w-2 h-2 rounded-full mt-2 ${
-                            index === 0 ? "bg-green-600" : "bg-gray-300"
-                          }`}
-                        ></div>
-                        <div>
-                          <p className="font-medium">{step}</p>
-                          <p className="text-gray-600">
-                            {step === "Order Confirmation"
-                              ? "You'll receive an email confirmation shortly."
-                              : step === "Processing"
-                              ? "We'll prepare your order for shipping."
-                              : "You'll get tracking info when your order ships."}
-                          </p>
-                        </div>
-                      </div>
-                    )
-                  )}
                 </div>
               </CardContent>
             </Card>
