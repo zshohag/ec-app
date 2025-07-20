@@ -535,9 +535,9 @@ export default function OrderConfirmationPage() {
                       className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg"
                     >
                       <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center">
-                        {item.image ? (
+                        {item.images ? (
                           <Image
-                            src={item.image}
+                            src={item.images?.[0]}
                             alt={item.name}
                             width={64}
                             height={64}

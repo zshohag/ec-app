@@ -69,7 +69,7 @@ export default function UserOrdersPage() {
                     className="flex items-center gap-4 border rounded-md p-2"
                   >
                     <Image
-                      src={item.image}
+                      src={item.images?.[0]}
                       alt={item.name}
                       width={64}
                       height={64}

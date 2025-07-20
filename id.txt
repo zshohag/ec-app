@@ -92,3 +92,9 @@ export async function DELETE(
     );
   }
 }
+
+// // git add .
+
+// //git commit -m "googel pay"
+
+// // git push -u origin main

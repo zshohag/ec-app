@@ -1,6 +1,6 @@
 "use client";
 
-import type { Product } from "../types/product";
+// import type { Product } from "../types/product";
 import {
   Dialog,
   DialogContent,
@@ -15,7 +15,7 @@ import {
   Check
 } from "lucide-react";
 import Image from "next/image";
-// import { useCart } from "@/context/CartContext";
+import { Product } from "@/types/types";
 
 interface ProductDetailsModalProps {
   product: Product | null;

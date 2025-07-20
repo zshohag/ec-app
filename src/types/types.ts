@@ -97,12 +97,9 @@
 //   discount?: number; // Optional field for discount amount
 // }
 
-
 /////////////////////////////////////
 
-
 /////////NEW ///////////
-
 
 import { LucideIcon } from "lucide-react";
 
@@ -122,22 +119,24 @@ export interface Product {
   badge?: string;
 }
 
-export interface Category {
-  id: string;
-  name: string;
-  icon: LucideIcon;
-  count: number;
-}
-
 export interface CartItem {
   id: string;
   name: string;
   price: number;
   originalPrice?: number;
-  image: string;
+  images: string[];
   quantity: number;
   inStock?: boolean;
   category?: string;
+}
+
+
+
+export interface Category {
+  id: string;
+  name: string;
+  icon: LucideIcon;
+  count: number;
 }
 
 export interface ShippingAddress {
