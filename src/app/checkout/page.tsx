@@ -468,8 +468,6 @@
 //             </Card>
 //           </div>
 
-
-          
 //         </div>
 //       </form>
 //     </div>
@@ -662,12 +660,12 @@ export default function CheckoutPage() {
           <div className="space-y-6">
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
+                <CardTitle className="flex items-center gap-2 mt-6  ">
                   <Truck className="w-5 h-5" />
                   Shipping Information
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-4 mb-6 ">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="firstName">First Name *</Label>
@@ -738,7 +736,9 @@ export default function CheckoutPage() {
                     className={errors.address ? "border-red-500" : ""}
                   />
                   {errors.address && (
-                    <p className="text-red-500 text-sm mt-1">{errors.address}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.address}
+                    </p>
                   )}
                 </div>
                 <div className="grid grid-cols-2 gap-4">
@@ -765,7 +765,9 @@ export default function CheckoutPage() {
                       className={errors.state ? "border-red-500" : ""}
                     />
                     {errors.state && (
-                      <p className="text-red-500 text-sm mt-1">{errors.state}</p>
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.state}
+                      </p>
                     )}
                   </div>
                 </div>
@@ -777,174 +779,174 @@ export default function CheckoutPage() {
                     value={formData.zipCode}
                     onChange={handleInputChange}
                     className={errors.zipCode ? "border-red-500" : ""}
-                    />
-                    {errors.zipCode && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {errors.zipCode}
-                      </p>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
+                  />
+                  {errors.zipCode && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.zipCode}
+                    </p>
+                  )}
+                </div>
+              </CardContent>
+            </Card>
 
-              <PaymentMethods
-                selectedPaymentMethod={formData.paymentMethod}
-                onPaymentMethodChange={(value) =>
-                  setFormData((prev) => ({ ...prev, paymentMethod: value }))
-                }
-              />
-            </div>
+            <PaymentMethods
+              selectedPaymentMethod={formData.paymentMethod}
+              onPaymentMethodChange={(value) =>
+                setFormData((prev) => ({ ...prev, paymentMethod: value }))
+              }
+            />
+          </div>
 
-            <div>
-              <Card className="sticky top-6">
-                <CardHeader>
-                  <CardTitle>Order Summary</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3 mb-6">
-                    {items.map((item) => (
-                      <div key={item.id} className="flex items-center gap-3">
-                        <div className="relative w-12 h-12 rounded-lg overflow-hidden bg-gray-100">
-                          <Image
-                            src={item.images?.[0]}
-                            alt={item.name}
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <h4 className="font-medium text-sm truncate">
-                            {item.name}
-                          </h4>
-                          <div className="flex items-center gap-2 text-xs text-gray-600">
-                            <span>Qty: {item.quantity}</span>
-                            <span>×</span>
-                            <span>${item.price}</span>
-                          </div>
-                        </div>
-                        <div className="text-sm font-medium">
-                          ${(item.price * item.quantity).toFixed(2)}
+          <div >
+            <Card className="sticky top-6">
+              <CardHeader>
+                <CardTitle className="mt-4"  >Order Summary</CardTitle>
+              </CardHeader>
+              <CardContent className="mb-4"  >
+                <div className="space-y-3 mb-6">
+                  {items.map((item) => (
+                    <div key={item.id} className="flex items-center gap-3">
+                      <div className="relative w-12 h-12 rounded-lg overflow-hidden bg-gray-100">
+                        <Image
+                          src={item.images?.[0]}
+                          alt={item.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-medium text-sm truncate">
+                          {item.name}
+                        </h4>
+                        <div className="flex items-center gap-2 text-xs text-gray-600">
+                          <span>Qty: {item.quantity}</span>
+                          <span>×</span>
+                          <span>${item.price}</span>
                         </div>
                       </div>
-                    ))}
+                      <div className="text-sm font-medium">
+                        ${(item.price * item.quantity).toFixed(2)}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="space-y-2 mb-6 pt-4 border-t">
+                  <div className="flex justify-between text-sm">
+                    <span>Subtotal ({itemCount} items)</span>
+                    <span>${total.toFixed(2)}</span>
                   </div>
-
-                  <div className="space-y-2 mb-6 pt-4 border-t">
-                    <div className="flex justify-between text-sm">
-                      <span>Subtotal ({itemCount} items)</span>
-                      <span>${total.toFixed(2)}</span>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                      <span>Shipping</span>
-                      <span>
-                        {shipping === 0 ? (
-                          <span className="text-green-600">Free</span>
-                        ) : (
-                          `$${shipping.toFixed(2)}`
-                        )}
-                      </span>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                      <span>Tax</span>
-                      <span>${tax.toFixed(2)}</span>
-                    </div>
-                    <div className="flex justify-between text-lg font-bold pt-2 border-t">
-                      <span>Total</span>
-                      <span>${finalTotal.toFixed(2)}</span>
-                    </div>
+                  <div className="flex justify-between text-sm">
+                    <span>Shipping</span>
+                    <span>
+                      {shipping === 0 ? (
+                        <span className="text-green-600">Free</span>
+                      ) : (
+                        `$${shipping.toFixed(2)}`
+                      )}
+                    </span>
                   </div>
+                  <div className="flex justify-between text-sm">
+                    <span>Tax</span>
+                    <span>${tax.toFixed(2)}</span>
+                  </div>
+                  <div className="flex justify-between text-lg font-bold pt-2 border-t">
+                    <span>Total</span>
+                    <span>${finalTotal.toFixed(2)}</span>
+                  </div>
+                </div>
 
-                  {formData.paymentMethod === "credit_card" ? (
-                    <StripeCheckoutButton
-                      items={items}
-                      email={formData.email}
-                      shippingAddress={{
-                        address: formData.address,
-                        city: formData.city,
-                        state: formData.state,
-                        zipCode: formData.zipCode,
-                        country: formData.country,
-                      }}
-                      onSuccessfulCheckout={async () => {
-                        try {
-                          const orderData = {
-                            items,
-                            subtotal: total,
-                            tax,
-                            shipping,
-                            total: finalTotal,
-                            shippingAddress: {
-                              firstName: formData.firstName,
-                              lastName: formData.lastName,
-                              email: formData.email,
-                              phone: formData.phone,
-                              address: formData.address,
-                              city: formData.city,
-                              state: formData.state,
-                              zipCode: formData.zipCode,
-                              country: formData.country,
-                            },
-                            paymentMethod: "stripe_success",
-                          };
+                {formData.paymentMethod === "credit_card" ? (
+                  <StripeCheckoutButton
+                    items={items}
+                    email={formData.email}
+                    shippingAddress={{
+                      address: formData.address,
+                      city: formData.city,
+                      state: formData.state,
+                      zipCode: formData.zipCode,
+                      country: formData.country,
+                    }}
+                    onSuccessfulCheckout={async () => {
+                      try {
+                        const orderData = {
+                          items,
+                          subtotal: total,
+                          tax,
+                          shipping,
+                          total: finalTotal,
+                          shippingAddress: {
+                            firstName: formData.firstName,
+                            lastName: formData.lastName,
+                            email: formData.email,
+                            phone: formData.phone,
+                            address: formData.address,
+                            city: formData.city,
+                            state: formData.state,
+                            zipCode: formData.zipCode,
+                            country: formData.country,
+                          },
+                          paymentMethod: "stripe_success",
+                        };
 
-                          const result = await dispatch(
-                            createOrder(orderData)
-                          ).unwrap();
-                          dispatch(clearCart());
-                          toast.success("Order placed successfully!");
-                          router.push(`/order-confirmation/${result.id}`);
-                        } catch (error) {
-                          console.error(
-                            "Order creation failed after Stripe:",
-                            error
-                          );
-                          toast.error(
-                            "Failed to finalize order after payment. Please contact support."
-                          );
-                        }
-                      }}
-                      loading={loading}
-                      total={finalTotal}
-                    />
-                  ) : formData.paymentMethod === "google_pay" ? (
-                    <GooglePayButton
-                      items={items}
-                      total={finalTotal}
-                      formData={formData}
-                      validateForm={validateForm}
-                      onSuccessfulCheckout={async (orderId: string) => {
+                        const result = await dispatch(
+                          createOrder(orderData)
+                        ).unwrap();
                         dispatch(clearCart());
                         toast.success("Order placed successfully!");
-                        router.push(`/order-confirmation/${orderId}`);
-                      }}
-                      loading={loading}
-                    />
-                  ) : (
-                    <Button
-                      type="submit"
-                      className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg"
-                      disabled={loading}
-                    >
-                      {loading ? (
-                        "Processing..."
-                      ) : (
-                        <>
-                          <Lock className="w-5 h-5 mr-2" />
-                          Place Order - ${finalTotal.toFixed(2)}
-                        </>
-                      )}
-                    </Button>
-                  )}
+                        router.push(`/order-confirmation/${result.id}`);
+                      } catch (error) {
+                        console.error(
+                          "Order creation failed after Stripe:",
+                          error
+                        );
+                        toast.error(
+                          "Failed to finalize order after payment. Please contact support."
+                        );
+                      }
+                    }}
+                    loading={loading}
+                    total={finalTotal}
+                  />
+                ) : formData.paymentMethod === "google_pay" ? (
+                  <GooglePayButton
+                    items={items}
+                    total={finalTotal}
+                    formData={formData}
+                    validateForm={validateForm}
+                    onSuccessfulCheckout={async (orderId: string) => {
+                      dispatch(clearCart());
+                      toast.success("Order placed successfully!");
+                      router.push(`/order-confirmation/${orderId}`);
+                    }}
+                    loading={loading}
+                  />
+                ) : (
+                  <Button
+                    type="submit"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg"
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      "Processing..."
+                    ) : (
+                      <>
+                        <Lock className="w-5 h-5 mr-2" />
+                        Place Order - ${finalTotal.toFixed(2)}
+                      </>
+                    )}
+                  </Button>
+                )}
 
-                  <div className="flex items-center justify-center gap-2 mt-4 text-sm text-gray-600">
-                    <Shield className="w-4 h-4 text-green-500" />
-                    <span>Secure SSL Encrypted Checkout</span>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+                <div className="flex items-center justify-center gap-2 mt-4 text-sm text-gray-600">
+                  <Shield className="w-4 h-4 text-green-500" />
+                  <span>Secure SSL Encrypted Checkout</span>
+                </div>
+              </CardContent>
+            </Card>
           </div>
-        </form>
-      </div>
-    );
+        </div>
+      </form>
+    </div>
+  );
 }

@@ -1,6 +1,5 @@
 //222 o
 
-
 // import type { Metadata } from "next";
 // import { Poppins, Geist, Geist_Mono } from "next/font/google";
 // import "./globals.css";
@@ -60,10 +59,7 @@
 //   );
 // }
 
-
-
 /////33  OKAY
-
 
 // import type { Metadata } from "next";
 // import { Poppins, Geist, Geist_Mono } from "next/font/google";
@@ -121,10 +117,7 @@
 //   );
 // }
 
-
-
 /////4444444
-
 
 import type { Metadata } from "next";
 import { Poppins, Geist, Geist_Mono } from "next/font/google";
@@ -164,13 +157,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script
-          src="https://pay.google.com/gp/p/js/pay.js"
-          async
-        ></script>
+        <script src="https://pay.google.com/gp/p/js/pay.js" async></script>
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} font-[var(--font-poppins)]`}
+        className={`
+    ${geistSans.variable} 
+    ${geistMono.variable} 
+    ${poppins.variable} 
+    font-sans
+  `}
         suppressHydrationWarning
       >
         <NextAuthProvider>
