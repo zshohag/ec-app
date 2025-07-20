@@ -79,7 +79,8 @@ import { connectMongoDB } from "@/lib/mongodb";
 import Order from "@/models/Order"; // Adjust the path to your Order model
 import User from "@/models/User"; // Adjust the path to your User model
 import { v4 as uuidv4 } from "uuid";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth";
+//import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 // POST - Create new order
 export async function POST(request: NextRequest) {
   try {
