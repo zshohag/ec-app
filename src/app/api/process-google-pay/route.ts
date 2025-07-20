@@ -3,8 +3,6 @@
 // import { NextRequest, NextResponse } from "next/server";
 // import Stripe from "stripe";
 
-
-
 // // Define interfaces for type safety
 // interface OrderItem {
 //   id: string;
@@ -43,11 +41,11 @@
 // export async function POST(request: NextRequest) {
 //   try {
 //     const body: RequestBody = await request.json();
-//     const { 
-//       paymentToken, 
-//       amount, 
+//     const {
+//       paymentToken,
+//       amount,
 //       currency = "usd",
-//       orderDetails 
+//       orderDetails
 //     } = body;
 
 //     // Validate required fields
@@ -115,47 +113,44 @@
 
 //   } catch (error: unknown) {
 //     console.error('Google Pay processing error:', error);
-    
+
 //     // Handle specific Stripe errors
 //     if (error instanceof Stripe.errors.StripeCardError) {
 //       return NextResponse.json(
-//         { 
-//           success: false, 
-//           error: error.message || "Your card was declined" 
+//         {
+//           success: false,
+//           error: error.message || "Your card was declined"
 //         },
 //         { status: 400 }
 //       );
 //     }
-    
+
 //     if (error instanceof Stripe.errors.StripeInvalidRequestError) {
 //       return NextResponse.json(
-//         { 
-//           success: false, 
-//           error: "Invalid payment information" 
+//         {
+//           success: false,
+//           error: "Invalid payment information"
 //         },
 //         { status: 400 }
 //       );
 //     }
 
 //     return NextResponse.json(
-//       { 
-//         success: false, 
-//         error: "Payment processing failed. Please try again." 
+//       {
+//         success: false,
+//         error: "Payment processing failed. Please try again."
 //       },
 //       { status: 500 }
 //     );
 //   }
 // }
 
-
 //////////
-
 
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import { CartItem, ShippingAddress } from "@/types/types";
 
-// Define interfaces for type safety, aligned with PaymentData
 interface OrderDetails {
   email: string;
   items: CartItem[];
@@ -170,22 +165,16 @@ interface RequestBody {
   orderDetails: OrderDetails;
 }
 
-// Initialize Stripe
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2025-06-30.basil",
+  apiVersion: "2025-06-30.basil", // Use stable version
 });
 
 export async function POST(request: NextRequest) {
   try {
     const body: RequestBody = await request.json();
-    const {
-      paymentToken,
-      amount,
-      currency = "usd",
-      orderDetails,
-    } = body;
+    const { paymentToken, amount, currency = "usd", orderDetails } = body;
 
-    // Validate required fields
+    // Validate inputs
     if (!paymentToken || !amount || !orderDetails) {
       return NextResponse.json(
         { error: "Missing required fields" },
@@ -193,16 +182,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create payment intent with Google Pay token
+    // ✅ Step 1: Create payment method using Google Pay token
+    const paymentMethod = await stripe.paymentMethods.create({
+      type: "card",
+      card: {
+        token: paymentToken,
+      },
+    });
+
+    // ✅ Step 2: Create PaymentIntent using the new payment method
     const paymentIntent = await stripe.paymentIntents.create({
       amount,
       currency,
-      payment_method_data: {
-        type: "card" as any, // Type assertion to bypass TypeScript error
-        card: {
-          token: paymentToken,
-        },
-      },
+      payment_method: paymentMethod.id,
       confirmation_method: "manual",
       confirm: true,
       return_url: `${process.env.NEXT_PUBLIC_BASE_URL}/order-confirmation`,
@@ -221,7 +213,7 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    // Check payment intent status
+    // ✅ Handle payment result
     if (paymentIntent.status === "succeeded") {
       return NextResponse.json({
         success: true,
@@ -247,25 +239,24 @@ export async function POST(request: NextRequest) {
       });
     }
   } catch (error: unknown) {
-    console.error("Google Pay processing error:", JSON.stringify(error, null, 2));
+    console.error("Stripe Google Pay error:", error);
 
-    // Handle specific Stripe errors
     if (error instanceof Stripe.errors.StripeCardError) {
       return NextResponse.json(
-        { success: false, error: error.message || "Your card was declined" },
+        { success: false, error: error.message || "Card declined" },
         { status: 400 }
       );
     }
 
     if (error instanceof Stripe.errors.StripeInvalidRequestError) {
       return NextResponse.json(
-        { success: false, error: "Invalid payment information" },
+        { success: false, error: "Invalid Stripe request" },
         { status: 400 }
       );
     }
 
     return NextResponse.json(
-      { success: false, error: "Payment processing failed. Please try again." },
+      { success: false, error: "Something went wrong with payment." },
       { status: 500 }
     );
   }
