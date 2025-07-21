@@ -1,6 +1,5 @@
 "use client";
 
-// import type { Product } from "../types/product";
 import {
   Dialog,
   DialogContent,
@@ -9,11 +8,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import {
-  Star,
-  ShoppingCart,
-  Check
-} from "lucide-react";
+import { Star, ShoppingCart, Check } from "lucide-react";
 import Image from "next/image";
 import { Product } from "@/types/types";
 
@@ -28,13 +23,8 @@ export function ProductDetailsModal({
   isOpen,
   onClose,
 }: ProductDetailsModalProps) {
-  //const { dispatch } = useCart();
-
   if (!product) return null;
 
-  // const handleAddToCart = () => {
-  //   dispatch({ type: "ADD_ITEM", payload: product });
-  // };
 
   const discount = product.originalPrice
     ? Math.round(
@@ -54,16 +44,17 @@ export function ProductDetailsModal({
         <div className="flex flex-col gap-8">
           {/* Product Image */}
           <div className="relative">
-            <div className="relative h-52 rounded-lg overflow-hidden">
+            <div className="relative w-full h-52 rounded-lg overflow-hidden">
               <Image
                 src={product.images?.[0] || "/placeholder.svg"}
                 alt={product.name}
                 fill
-                className="object-cover"
+                className="object-contain"
                 sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
               {product.badge && (
-                <Badge className="absolute top-4 left-4 bg-red-500">
+                <Badge className="absolute top-4 left-4 bg-red-500 text-white shadow">
                   {product.badge}
                 </Badge>
               )}
@@ -118,26 +109,6 @@ export function ProductDetailsModal({
                 <span className="text-red-600 font-semibold">Out of Stock</span>
               )}
             </div>
-
-            {/* Description */}
-            {/* <div>
-              <h3 className="text-lg font-semibold mb-2">Description</h3>
-              <p className="text-gray-600 leading-relaxed">{product.description}</p>
-            </div> */}
-
-            {/* Features */}
-            {/* <div>
-              <h3 className="text-lg font-semibold mb-3">Key Features</h3>
-              <div className="grid grid-cols-1 gap-2">
-                {product.features.map((feature, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
-                    <span className="text-gray-700">{feature}</span>
-                  </div>
-                ))}
-              </div>
-            </div> */}
-
             {/* Add to Cart */}
             <Button
               // onClick={handleAddToCart}

@@ -1,0 +1,15 @@
+# Step 1: Rebuild (after fixing the type error)
+npm run build
+
+# Step 2: Serve the app in production mode
+npm start
+
+# Now visit:
+http://localhost:3000
+
+
+
+git add .
+
+git commit -m "first commit"
+git push -u origin main

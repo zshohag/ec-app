@@ -35,7 +35,7 @@ export default function OrderSummaryCard({
             <div key={item.id} className="flex items-center gap-3">
               <div className="relative w-12 h-12 rounded-lg overflow-hidden bg-gray-100">
                 <Image
-                  src={item.images?.[0]}
+                  src={item.images?.[0] || "/placeholder.svg"} // ✅ fallback path
                   alt={item.name}
                   fill
                   className="object-cover"

@@ -72,17 +72,15 @@
 //   );
 // }
 
-
-//new try 
+//new try
 
 // components/StripeCheckoutButton.tsx
 "use client";
 
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Lock } from "lucide-react";
+import { CreditCard } from "lucide-react";
 import { CartItem } from "@/types/types";
-
 
 interface StripeCheckoutButtonProps {
   items: CartItem[];
@@ -127,7 +125,7 @@ export default function StripeCheckoutButton({
 
   return (
     <Button
-      className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg"
+      className="w-full  text-white  py-3 text-lg"
       onClick={handleStripeCheckout}
       disabled={loading}
     >
@@ -135,7 +133,7 @@ export default function StripeCheckoutButton({
         "Processing..."
       ) : (
         <>
-          <Lock className="w-5 h-5 mr-2" />
+          <CreditCard className="w-4 h-4" />
           Pay with Card - ${total.toFixed(2)}
         </>
       )}

@@ -1,4 +1,3 @@
-
 // // app/order-confirmation/[id]/page.tsx
 
 // "use client";
@@ -137,7 +136,7 @@
 //                         {formatDate(currentOrder.estimatedDelivery)}
 //                       </span>
 //                     </div>
-//                   )}  
+//                   )}
 //                 </div>
 //               </CardContent>
 //             </Card>
@@ -257,7 +256,7 @@
 //                       <span>Discount</span>
 //                       <span>-{formatCurrency(currentOrder.discount)}</span>
 //                     </div>
-//                   )} 
+//                   )}
 
 //                 <div className="border-t pt-4">
 //                   <div className="flex justify-between font-semibold text-lg">
@@ -378,9 +377,7 @@
 //   );
 // }
 
-/////new style 
-
-
+/////new style
 
 // app/order-confirmation/[id]/page.tsx
 
@@ -517,7 +514,7 @@ export default function OrderConfirmationPage() {
                         {formatDate(currentOrder.estimatedDelivery)}
                       </span>
                     </div>
-                  )}  
+                  )}
                 </div>
               </CardContent>
             </Card>
@@ -625,13 +622,13 @@ export default function OrderConfirmationPage() {
                   <span>{formatCurrency(currentOrder.tax)}</span>
                 </div>
 
-              {typeof currentOrder.discount === "number" &&
+                {typeof currentOrder.discount === "number" &&
                   currentOrder.discount > 0 && (
                     <div className="flex justify-between text-sm text-green-600">
                       <span>Discount</span>
                       <span>-{formatCurrency(currentOrder.discount)}</span>
                     </div>
-                  )} 
+                  )}
 
                 <div className="border-t pt-4">
                   <div className="flex justify-between font-semibold text-lg">
@@ -643,7 +640,7 @@ export default function OrderConfirmationPage() {
             </Card>
 
             {/* Payment Method */}
-            <Card>
+            {/* <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <CreditCard className="w-5 h-5" />
@@ -657,6 +654,25 @@ export default function OrderConfirmationPage() {
                   </div>
                 </div>
               </CardContent>
+            </Card> */}
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <CreditCard className="w-5 h-5" />
+                  Payment Method
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-gray-100 rounded flex items-center justify-center">
+                    <CreditCard className="w-4 h-4 text-gray-600" />
+                  </div>
+                  <p className="text-gray-700 text-sm">
+                    {currentOrder.paymentMethod || "Not specified"}
+                  </p>
+                </div>
+              </CardContent>
             </Card>
           </div>
         </div>
@@ -667,12 +683,12 @@ export default function OrderConfirmationPage() {
             Need help with your order? Contact our customer support team.
           </p>
           <div className="flex justify-center gap-4">
-            <Link href="/support">
+            <Link href="/contact">
               <Button variant="outline">Contact Support</Button>
             </Link>
-            <Link href="/orders">
+            {/* <Link href="/orders">
               <Button variant="outline">View All Orders</Button>
-            </Link>
+            </Link> */}
             <Link href="/">
               <Button>Continue Shopping</Button>
             </Link>

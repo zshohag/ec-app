@@ -514,7 +514,7 @@ export default function CheckoutPage() {
     city: "",
     state: "",
     zipCode: "",
-    country: "United States",
+    country: "US",
     paymentMethod: "credit_card",
   });
 
@@ -797,18 +797,18 @@ export default function CheckoutPage() {
             />
           </div>
 
-          <div >
+          <div>
             <Card className="sticky top-6">
               <CardHeader>
-                <CardTitle className="mt-4"  >Order Summary</CardTitle>
+                <CardTitle className="mt-4">Order Summary</CardTitle>
               </CardHeader>
-              <CardContent className="mb-4"  >
+              <CardContent className="mb-4">
                 <div className="space-y-3 mb-6">
                   {items.map((item) => (
                     <div key={item.id} className="flex items-center gap-3">
                       <div className="relative w-12 h-12 rounded-lg overflow-hidden bg-gray-100">
                         <Image
-                          src={item.images?.[0]}
+                          src={item.images?.[0] || "/placeholder.svg"} // ✅ fallback path
                           alt={item.name}
                           fill
                           className="object-cover"

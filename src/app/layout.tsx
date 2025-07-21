@@ -157,7 +157,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script src="https://pay.google.com/gp/p/js/pay.js" async></script>
+        <script async src="https://pay.google.com/gp/p/js/pay.js"></script>
       </head>
       <body
         className={`

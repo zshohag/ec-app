@@ -79,7 +79,7 @@ export default function ManageOrdersPage() {
                     className="flex items-center gap-4 border rounded-md p-2"
                   >
                     <Image
-                      src={item.images?.[0]}
+                      src={item.images?.[0] || "/placeholder.svg"} // ✅ fallback path
                       alt={item.name}
                       width={64}
                       height={64}
