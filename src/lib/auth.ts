@@ -1,7 +1,12 @@
 import { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import User from "@/models/User";
-import type { Account, Profile, User as NextAuthUser, Session } from "next-auth";
+import type {
+  Account,
+  Profile,
+  User as NextAuthUser,
+  Session,
+} from "next-auth";
 import type { JWT } from "next-auth/jwt";
 import type { AdapterUser } from "next-auth/adapters";
 import { connectMongoDB } from "./mongodb";
@@ -14,11 +19,11 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async signIn({ 
-      user, 
-      account 
-    }: { 
-      user: NextAuthUser | AdapterUser; 
+    async signIn({
+      user,
+      account,
+    }: {
+      user: NextAuthUser | AdapterUser;
       account: Account | null;
       profile?: Profile;
       email?: { verificationRequest?: boolean };
@@ -46,11 +51,11 @@ export const authOptions: NextAuthOptions = {
       return true;
     },
 
-    async jwt({ 
-      token, 
-      user 
-    }: { 
-      token: JWT; 
+    async jwt({
+      token,
+      user,
+    }: {
+      token: JWT;
       user?: NextAuthUser | AdapterUser;
       account?: Account | null;
       profile?: Profile;
@@ -66,11 +71,11 @@ export const authOptions: NextAuthOptions = {
       return token;
     },
 
-    async session({ 
-      session, 
-      token 
-    }: { 
-      session: Session; 
+    async session({
+      session,
+      token,
+    }: {
+      session: Session;
       token: JWT;
       user?: NextAuthUser | AdapterUser;
     }) {
@@ -81,3 +86,70 @@ export const authOptions: NextAuthOptions = {
     },
   },
 };
+
+////////NO NEED
+
+// lib/auth.ts
+// import { NextAuthOptions } from "next-auth";
+// import GoogleProvider from "next-auth/providers/google";
+// import User from "@/models/User";
+// import { connectMongoDB } from "./mongodb";
+
+// export const authOptions: NextAuthOptions = {
+//   providers: [
+//     GoogleProvider({
+//       clientId: process.env.GOOGLE_CLIENT_ID as string,
+//       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+//     }),
+//   ],
+//   secret: process.env.NEXTAUTH_SECRET, // Required for session signing
+//   debug: process.env.NODE_ENV === "development", // Enable debug in development
+//   callbacks: {
+//     async signIn({ user, account }) {
+//       if (account?.provider === "google") {
+//         const { name, email } = user;
+//         try {
+//           await connectMongoDB();
+//           const existingUser = await User.findOne({ email });
+
+//           if (!existingUser) {
+//             const res = await fetch(`${process.env.NEXTAUTH_URL}/api/user`, {
+//               method: "POST",
+//               headers: { "Content-Type": "application/json" },
+//               body: JSON.stringify({ name, email, role: "user" }),
+//             });
+
+//             if (!res.ok) {
+//               const errorText = await res.text();
+//               console.error(`❌ Failed to create user: ${errorText}`);
+//               return false;
+//             }
+//           }
+//           return true;
+//         } catch (err) {
+//           console.error("❌ Sign-in error:", err);
+//           return false;
+//         }
+//       }
+//       return true;
+//     },
+
+//     async jwt({ token, user }) {
+//       if (user?.email) {
+//         await connectMongoDB();
+//         const dbUser = await User.findOne({ email: user.email });
+//         if (dbUser) {
+//           token.role = dbUser.role || "user";
+//         }
+//       }
+//       return token;
+//     },
+
+//     async session({ session, token }) {
+//       if (session?.user && token?.role) {
+//         session.user.role = token.role as string;
+//       }
+//       return session;
+//     },
+//   },
+// };
