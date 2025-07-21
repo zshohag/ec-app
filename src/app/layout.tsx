@@ -127,6 +127,7 @@ import { Footer } from "@/components/shared/Footer";
 import { NextAuthProvider } from "@/providers/SessionProvider";
 import { Providers as QueryProviders } from "@/providers/QueryProvider";
 import { ReduxProvider } from "@/providers/ReduxProvider";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -177,6 +178,7 @@ export default function RootLayout({
             </ReduxProvider>
           </QueryProviders>
         </NextAuthProvider>
+        <Toaster position="top-center" reverseOrder={false} />
       </body>
     </html>
   );
