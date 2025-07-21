@@ -111,7 +111,6 @@ export function ProductDetailsModal({
             </div>
             {/* Add to Cart */}
             <Button
-              // onClick={handleAddToCart}
               disabled={!product.inStock}
               size="sm"
               className="w-full text-lg py-4 mt-2"
