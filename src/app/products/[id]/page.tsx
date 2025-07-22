@@ -40,26 +40,6 @@ export default function ProductDetailsPage() {
     }
   }, [product]);
 
-  // const handleAddToCart = () => {
-  //   if (!product) return;
-
-  //   // Add multiple quantities
-  //   for (let i = 0; i < quantity; i++) {
-  //     dispatch(addToCart({
-  //       id: product.id,
-  //       name: product.name,
-  //       price: product.price,
-  //       originalPrice: product.originalPrice,
-  //       images: product.images?.[0] || ["/placeholder.svg"],
-  //       inStock: product.inStock,
-  //       category: product.category,
-  //     }));
-  //   }
-
-  //   toast.success(`${quantity} ${product.name}(s) added to cart!`);
-  //   setQuantity(1); // Reset quantity
-  // };
-
   const handleAddToCart = () => {
     if (!product) return;
 
@@ -76,7 +56,7 @@ export default function ProductDetailsPage() {
               : ["/placeholder.svg"],
           inStock: product.inStock,
           category: product.category,
-          quantity: product.quantity, // Add required property
+          quantity: product.quantity, 
         })
       );
     }

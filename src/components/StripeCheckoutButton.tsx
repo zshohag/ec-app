@@ -3,8 +3,8 @@
 
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { CreditCard } from "lucide-react";
 import { CartItem } from "@/types/types";
+import Image from "next/image";
 
 interface StripeCheckoutButtonProps {
   items: CartItem[];
@@ -57,8 +57,19 @@ export default function StripeCheckoutButton({
         "Processing..."
       ) : (
         <>
-          <CreditCard className="w-4 h-4" />
-          Pay with Card - ${total.toFixed(2)}
+          {/* <CreditCard className="w-4 h-4" />
+          Pay with Card - ${total.toFixed(2)} */}
+          <div className="flex items-center gap-2 text-sm font-medium text-gray-800">
+            <span>Pay with Card</span>
+            <Image
+              src="/images/credit.png"
+              alt="Credit Card"
+              width={16}
+              height={16}
+              className="w-4 h-4"
+            />
+            <span>${total.toFixed(2)}</span>
+          </div>
         </>
       )}
     </Button>

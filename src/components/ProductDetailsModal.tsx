@@ -234,28 +234,6 @@ export function ProductDetailsModal({
                 <span className="text-red-600 font-semibold">Out of Stock</span>
               )}
             </div>
-
-            {/* 
-             <div className="flex items-center gap-2 mt-2">
-                {product.inStock ? (
-                  <Badge className="bg-green-600 text-white flex items-center gap-1">
-                    <Check className="w-5 h-5" />
-                    In Stock
-                  </Badge>
-                ) : (
-                  <Badge variant="destructive">Out of Stock</Badge>
-                )}
-              </div> */}
-
-            {/* Add to Cart */}
-            {/* <Button
-              disabled={!product.inStock}
-              size="sm"
-              className="w-full text-lg py-4 mt-2"
-            >
-              <ShoppingCart className="w-5 h-5 mr-2" />
-              Add to Cart - ${product.price}
-            </Button> */}
           </div>
         </div>
       </DialogContent>

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-//import { useSession } from "next-auth/react";
 
 // Extend the session user type to include 'role'
 declare module "next-auth" {

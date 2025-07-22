@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import { useSelector } from "react-redux";
 import type { RootState } from "@/lib/store";
-
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -14,12 +13,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  User,
-  LogOut,
-  Package,
-  ShoppingCart,
-} from "lucide-react";
+import { User, LogOut, Package, ShoppingCart } from "lucide-react";
 
 export function Navbar() {
   const { data: session, status } = useSession();
@@ -44,13 +38,22 @@ export function Navbar() {
 
           {/* Navigation (Desktop) */}
           <nav className="hidden md:flex items-center gap-6">
-            <Link href="/products" className="text-gray-600 hover:text-gray-900 transition-colors">
+            <Link
+              href="/products"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+            >
               Products
             </Link>
-            <Link href="/about" className="text-gray-600 hover:text-gray-900 transition-colors">
+            <Link
+              href="/about"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+            >
               About
             </Link>
-            <Link href="/contact" className="text-gray-600 hover:text-gray-900 transition-colors">
+            <Link
+              href="/contact"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+            >
               Contact
             </Link>
           </nav>
@@ -71,7 +74,10 @@ export function Navbar() {
             {isAuthenticated && user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="relative h-10 w-10 rounded-full">
+                  <Button
+                    variant="ghost"
+                    className="relative h-10 w-10 rounded-full"
+                  >
                     <User className="h-6 w-6" />
                   </Button>
                 </DropdownMenuTrigger>
@@ -94,7 +100,10 @@ export function Navbar() {
                   </DropdownMenuItem>
 
                   <DropdownMenuItem asChild>
-                    <Link href="/dashboard/user/manage-orders" className="flex items-center">
+                    <Link
+                      href="/dashboard/user/manage-orders"
+                      className="flex items-center"
+                    >
                       <Package className="mr-2 h-4 w-4" />
                       My Orders
                     </Link>
@@ -116,7 +125,7 @@ export function Navbar() {
                   <Link href="/login">Login</Link>
                 </Button>
                 <Button asChild>
-                  <Link href="/signup">Sign Up</Link>
+                  <Link href="/register">Sign Up</Link>
                 </Button>
               </div>
             )}

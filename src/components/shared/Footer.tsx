@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Facebook, Github, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Facebook,  Instagram  } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Footer() {
@@ -42,11 +42,6 @@ export function Footer() {
           <h3 className="text-lg font-semibold mb-3 text-gray-800 dark:text-white">Follow Us</h3>
           <div className="flex gap-4">
             <Button size="icon" variant="ghost" asChild>
-              <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
-                <Github className="w-5 h-5" />
-              </Link>
-            </Button>
-            <Button size="icon" variant="ghost" asChild>
               <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                 <Facebook className="w-5 h-5" />
               </Link>
@@ -54,16 +49,6 @@ export function Footer() {
             <Button size="icon" variant="ghost" asChild>
               <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                 <Instagram className="w-5 h-5" />
-              </Link>
-            </Button>
-            <Button size="icon" variant="ghost" asChild>
-              <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                <Twitter className="w-5 h-5" />
-              </Link>
-            </Button>
-            <Button size="icon" variant="ghost" asChild>
-              <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                <Linkedin className="w-5 h-5" />
               </Link>
             </Button>
           </div>

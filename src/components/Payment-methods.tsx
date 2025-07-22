@@ -34,11 +34,17 @@ export default function PaymentMethods({
               htmlFor="credit_card"
               className="flex items-center gap-2 cursor-pointer"
             >
-              <CreditCard className="w-4 h-4" />
+              <Image
+                src="/images/credit.png"
+                alt="PayPal"
+                width={16}
+                height={16}
+                className="w-4 h-4"
+              />
               Credit Card
             </Label>
           </div>
-           <div className="flex items-center space-x-2 p-3 border rounded-lg">
+          <div className="flex items-center space-x-2 p-3 border rounded-lg">
             <RadioGroupItem value="google_pay" id="google_pay" />
             <Label
               htmlFor="google_pay"
@@ -55,7 +61,7 @@ export default function PaymentMethods({
               className="flex items-center gap-2 cursor-pointer"
             >
               <Image
-                src="/paypal-icon.svg" // Add PayPal icon to your public folder
+                src="/images/paypal.png" // Add PayPal icon to your public folder
                 alt="PayPal"
                 width={16}
                 height={16}
@@ -64,7 +70,6 @@ export default function PaymentMethods({
               PayPal
             </Label>
           </div>
-         
         </RadioGroup>
       </CardContent>
     </Card>
