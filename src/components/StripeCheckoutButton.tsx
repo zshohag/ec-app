@@ -49,7 +49,7 @@ export default function StripeCheckoutButton({
 
   return (
     <Button
-      className="w-full  text-white  py-3 text-lg"
+      className="w-full bg-black text-white  py-3 text-lg"
       onClick={handleStripeCheckout}
       disabled={loading}
     >
