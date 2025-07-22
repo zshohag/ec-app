@@ -1,3 +1,6 @@
+
+// // app/checkout/page.ts
+
 // "use client";
 
 // import { useEffect, useState } from "react";
@@ -16,6 +19,7 @@
 // import { useSession } from "next-auth/react";
 // import PaymentMethods from "@/components/Payment-methods";
 // import StripeCheckoutButton from "@/components/StripeCheckoutButton";
+// import GooglePayButton from "@/components/GooglePayButton";
 
 // export default function CheckoutPage() {
 //   const router = useRouter();
@@ -27,24 +31,15 @@
 //   const [formData, setFormData] = useState({
 //     firstName: "",
 //     lastName: "",
-//     email: session?.user?.email || "", // Pre-fill from session
+//     email: session?.user?.email || "",
 //     phone: "",
 //     address: "",
 //     city: "",
 //     state: "",
 //     zipCode: "",
-//     country: "United States",
+//     country: "US",
 //     paymentMethod: "credit_card",
 //   });
-
-//   useEffect(() => {
-//     if (session?.user?.email) {
-//       setFormData((prev) => ({
-//         ...prev,
-//         email: session.user.email || "", // Ensure it's a string
-//       }));
-//     }
-//   }, [session]);
 
 //   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
@@ -52,21 +47,14 @@
 //   const tax = total * 0.08;
 //   const finalTotal = total + shipping + tax;
 
-//   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-//     const { name, value } = e.target;
-//     setFormData((prev) => ({
-//       ...prev,
-//       [name]: value,
-//     }));
-
-//     // Clear error when user starts typing
-//     if (errors[name]) {
-//       setErrors((prev) => ({
+//   useEffect(() => {
+//     if (session?.user?.email) {
+//       setFormData((prev) => ({
 //         ...prev,
-//         [name]: "",
+//         email: session.user.email || "",
 //       }));
 //     }
-//   };
+//   }, [session]);
 
 //   const validateForm = () => {
 //     const newErrors: { [key: string]: string } = {};
@@ -80,13 +68,27 @@
 //     if (!formData.state) newErrors.state = "State is required";
 //     if (!formData.zipCode) newErrors.zipCode = "ZIP code is required";
 
-//     // Email validation
 //     if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
 //       newErrors.email = "Please enter a valid email address";
 //     }
 
 //     setErrors(newErrors);
 //     return Object.keys(newErrors).length === 0;
+//   };
+
+//   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     const { name, value } = e.target;
+//     setFormData((prev) => ({
+//       ...prev,
+//       [name]: value,
+//     }));
+
+//     if (errors[name]) {
+//       setErrors((prev) => ({
+//         ...prev,
+//         [name]: "",
+//       }));
+//     }
 //   };
 
 //   const handleSubmit = async (e: React.FormEvent) => {
@@ -102,7 +104,11 @@
 //       return;
 //     }
 
-//     // If payment method is not credit card, proceed with direct order creation
+//     if (formData.paymentMethod === "google_pay") {
+//       // Google Pay handling is delegated to GooglePayButton
+//       return;
+//     }
+
 //     if (formData.paymentMethod !== "credit_card") {
 //       try {
 //         const orderData = {
@@ -126,17 +132,14 @@
 //         };
 
 //         const result = await dispatch(createOrder(orderData)).unwrap();
-
 //         toast.success("Order placed successfully!");
 //         router.push(`/order-confirmation/${result.id}`);
-//         // Clear cart after successful order
 //         dispatch(clearCart());
 //       } catch (error) {
 //         console.error("Order creation failed:", error);
 //         toast.error("Failed to place order. Please try again.");
 //       }
 //     }
-//     // If payment method is credit_card, the StripeCheckoutButton will handle the submission
 //   };
 
 //   if (items.length === 0) {
@@ -162,7 +165,6 @@
 
 //   return (
 //     <div className="max-w-7xl mx-auto px-4 py-12">
-//       {/* Header */}
 //       <div className="flex items-center gap-4 mb-8">
 //         <Link href="/cart">
 //           <Button variant="outline" size="sm">
@@ -178,17 +180,15 @@
 
 //       <form onSubmit={handleSubmit}>
 //         <div className="grid lg:grid-cols-2 gap-8">
-//           {/* Left Column - Forms */}
 //           <div className="space-y-6">
-//             {/* Shipping Information */}
 //             <Card>
 //               <CardHeader>
-//                 <CardTitle className="flex items-center gap-2">
+//                 <CardTitle className="flex items-center gap-2 mt-6  ">
 //                   <Truck className="w-5 h-5" />
 //                   Shipping Information
 //                 </CardTitle>
 //               </CardHeader>
-//               <CardContent className="space-y-4">
+//               <CardContent className="space-y-4 mb-6 ">
 //                 <div className="grid grid-cols-2 gap-4">
 //                   <div>
 //                     <Label htmlFor="firstName">First Name *</Label>
@@ -221,7 +221,6 @@
 //                     )}
 //                   </div>
 //                 </div>
-
 //                 <div>
 //                   <Label htmlFor="email">Email *</Label>
 //                   <Input
@@ -236,7 +235,6 @@
 //                     <p className="text-red-500 text-sm mt-1">{errors.email}</p>
 //                   )}
 //                 </div>
-
 //                 <div>
 //                   <Label htmlFor="phone">Phone Number *</Label>
 //                   <Input
@@ -251,7 +249,6 @@
 //                     <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
 //                   )}
 //                 </div>
-
 //                 <div>
 //                   <Label htmlFor="address">Street Address *</Label>
 //                   <Input
@@ -267,7 +264,6 @@
 //                     </p>
 //                   )}
 //                 </div>
-
 //                 <div className="grid grid-cols-2 gap-4">
 //                   <div>
 //                     <Label htmlFor="city">City *</Label>
@@ -298,7 +294,6 @@
 //                     )}
 //                   </div>
 //                 </div>
-
 //                 <div>
 //                   <Label htmlFor="zipCode">ZIP Code *</Label>
 //                   <Input
@@ -317,7 +312,6 @@
 //               </CardContent>
 //             </Card>
 
-//             {/* Payment Method */}
 //             <PaymentMethods
 //               selectedPaymentMethod={formData.paymentMethod}
 //               onPaymentMethodChange={(value) =>
@@ -326,20 +320,18 @@
 //             />
 //           </div>
 
-//           {/* Right Column - Order Summary */}
 //           <div>
 //             <Card className="sticky top-6">
 //               <CardHeader>
-//                 <CardTitle>Order Summary</CardTitle>
+//                 <CardTitle className="mt-4">Order Summary</CardTitle>
 //               </CardHeader>
-//               <CardContent>
-//                 {/* Order Items */}
+//               <CardContent className="mb-4">
 //                 <div className="space-y-3 mb-6">
 //                   {items.map((item) => (
 //                     <div key={item.id} className="flex items-center gap-3">
 //                       <div className="relative w-12 h-12 rounded-lg overflow-hidden bg-gray-100">
 //                         <Image
-//                           src={item.image}
+//                           src={item.images?.[0] || "/placeholder.svg"} // ✅ fallback path
 //                           alt={item.name}
 //                           fill
 //                           className="object-cover"
@@ -356,13 +348,12 @@
 //                         </div>
 //                       </div>
 //                       <div className="text-sm font-medium">
-//                         {(item.price * item.quantity).toFixed(2)}
+//                         ${(item.price * item.quantity).toFixed(2)}
 //                       </div>
 //                     </div>
 //                   ))}
 //                 </div>
 
-//                 {/* Price Breakdown */}
 //                 <div className="space-y-2 mb-6 pt-4 border-t">
 //                   <div className="flex justify-between text-sm">
 //                     <span>Subtotal ({itemCount} items)</span>
@@ -388,7 +379,6 @@
 //                   </div>
 //                 </div>
 
-//                 {/* Conditional rendering of buttons based on payment method */}
 //                 {formData.paymentMethod === "credit_card" ? (
 //                   <StripeCheckoutButton
 //                     items={items}
@@ -401,7 +391,6 @@
 //                       country: formData.country,
 //                     }}
 //                     onSuccessfulCheckout={async () => {
-//                       // Call the local createOrder logic after successful Stripe checkout
 //                       try {
 //                         const orderData = {
 //                           items,
@@ -420,7 +409,7 @@
 //                             zipCode: formData.zipCode,
 //                             country: formData.country,
 //                           },
-//                           paymentMethod: "stripe_success", // Indicate payment via Stripe
+//                           paymentMethod: "stripe_success",
 //                         };
 
 //                         const result = await dispatch(
@@ -439,8 +428,21 @@
 //                         );
 //                       }
 //                     }}
-//                     loading={loading} // Pass the loading state
-//                     total={finalTotal} // Pass the finalTotal for display
+//                     loading={loading}
+//                     total={finalTotal}
+//                   />
+//                 ) : formData.paymentMethod === "google_pay" ? (
+//                   <GooglePayButton
+//                     items={items}
+//                     total={finalTotal}
+//                     formData={formData}
+//                     validateForm={validateForm}
+//                     onSuccessfulCheckout={async (orderId: string) => {
+//                       dispatch(clearCart());
+//                       toast.success("Order placed successfully!");
+//                       router.push(`/order-confirmation/${orderId}`);
+//                     }}
+//                     loading={loading}
 //                   />
 //                 ) : (
 //                   <Button
@@ -459,7 +461,9 @@
 //                   </Button>
 //                 )}
 
-//                 {/* Security Badge */}
+                
+
+
 //                 <div className="flex items-center justify-center gap-2 mt-4 text-sm text-gray-600">
 //                   <Shield className="w-4 h-4 text-green-500" />
 //                   <span>Secure SSL Encrypted Checkout</span>
@@ -467,16 +471,17 @@
 //               </CardContent>
 //             </Card>
 //           </div>
-
 //         </div>
 //       </form>
 //     </div>
 //   );
 // }
 
-// /////NEW
 
-// // app/checkout/page.ts
+///paypal
+
+
+// app/checkout/page.ts
 
 "use client";
 
@@ -497,6 +502,7 @@ import { useSession } from "next-auth/react";
 import PaymentMethods from "@/components/Payment-methods";
 import StripeCheckoutButton from "@/components/StripeCheckoutButton";
 import GooglePayButton from "@/components/GooglePayButton";
+import PayPalCheckoutButton from "@/components/PayPalCheckoutButton";
 
 export default function CheckoutPage() {
   const router = useRouter();
@@ -937,6 +943,57 @@ export default function CheckoutPage() {
                     )}
                   </Button>
                 )}
+
+                {formData.paymentMethod === "paypal" && (
+  <PayPalCheckoutButton
+    items={items}
+    email={formData.email}
+    shippingAddress={{
+      address: formData.address,
+      city: formData.city,
+      state: formData.state,
+      zipCode: formData.zipCode,
+      country: formData.country,
+    }}
+    onSuccessfulCheckout={async () => {
+      try {
+        const orderData = {
+          items,
+          subtotal: total,
+          tax,
+          shipping,
+          total: finalTotal,
+          shippingAddress: {
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            email: formData.email,
+            phone: formData.phone,
+            address: formData.address,
+            city: formData.city,
+            state: formData.state,
+            zipCode: formData.zipCode,
+            country: formData.country,
+          },
+          paymentMethod: "paypal_success",
+        };
+
+        const result = await dispatch(createOrder(orderData)).unwrap();
+        dispatch(clearCart());
+        toast.success("Order placed successfully!");
+        router.push(`/order-confirmation/${result.id}`);
+      } catch (error) {
+        console.error("Order creation failed after PayPal:", error);
+        toast.error("Failed to finalize order after PayPal. Please contact support.");
+      }
+    }}
+    total={finalTotal}
+    loading={loading}
+  />
+)}
+
+
+                
+
 
                 <div className="flex items-center justify-center gap-2 mt-4 text-sm text-gray-600">
                   <Shield className="w-4 h-4 text-green-500" />
