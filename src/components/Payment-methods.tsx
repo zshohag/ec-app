@@ -34,13 +34,7 @@ export default function PaymentMethods({
               htmlFor="credit_card"
               className="flex items-center gap-2 cursor-pointer"
             >
-              <Image
-                src="/images/credit.png"
-                alt="PayPal"
-                width={16}
-                height={16}
-                className="w-4 h-4"
-              />
+              <CreditCard className="w-5 h-5" />
               Credit Card
             </Label>
           </div>

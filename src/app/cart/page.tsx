@@ -349,7 +349,7 @@ export default function CartPage() {
             Looks like you haven&apos;t added any items to your cart yet.
           </p>
           <Link href="/products">
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3">
+            <Button className=" bg-black text-white px-8 py-3">
               <ArrowLeft className="w-5 h-5 mr-2" />
               Continue Shopping
             </Button>

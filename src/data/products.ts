@@ -1043,7 +1043,7 @@ export const products: Product[] = [
   },
   {
     id: "44",
-    name: "White Chocolate Raspberry Bites",
+    name: "White Chocolate Raspberry",
     price: 12.99,
     images: [
       "https://i.ibb.co/DD4pKpYL/Raspberry1.jpg",

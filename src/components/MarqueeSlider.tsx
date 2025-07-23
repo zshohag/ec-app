@@ -4,33 +4,33 @@ import Image from "next/image";
 
 const reviews = [
   {
-    name: "Jack",
-    username: "@jack",
-    body: "I've never seen anything like this before. It's amazing. I love it.",
-    img: "https://avatar.vercel.sh/jack",
+    name: "Sophia Reynolds",
+    username: "@sophia",
+    body: "Absolutely love the product quality and the fast shipping! Will definitely be back for more.",
+    img: "https://avatar.vercel.sh/sophia",
   },
   {
     name: "Jill",
     username: "@jill",
-    body: "I don't know what to say. I'm speechless. This is amazing.",
+    body: "Everything was exactly as described. Great customer support and smooth checkout process.",
     img: "https://avatar.vercel.sh/jill",
   },
   {
     name: "John",
     username: "@john",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    body: "I’ve ordered twice now and both times my experience was top-notch. Highly recommended!",
     img: "https://avatar.vercel.sh/john",
   },
   {
     name: "Jane",
     username: "@jane",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    body: "Your site is easy to navigate and I love the deals! Everything arrived on time and in perfect condition.",
     img: "https://avatar.vercel.sh/jane",
   },
   {
     name: "Jenny",
     username: "@jenny",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    body: "From ordering to delivery, everything was seamless. Great service and great products!",
     img: "https://avatar.vercel.sh/jenny",
   },
   {
@@ -65,7 +65,7 @@ const ReviewCard = ({
       )}
     >
       <div className="flex flex-row items-center gap-2">
-        {/* <img className="rounded-full" width="32" height="32" alt="" src={img} /> */}
+       
         <Image
           src={img}
           alt="User avatar"
@@ -89,11 +89,11 @@ export function MarqueeSlider() {
   return (
     <div className="relative flex max-w-7xl w-full mx-auto flex-col items-center justify-center overflow-hidden mb-14 mt-14  ">
       <div className=" mx-auto px-4 text-center mb-8">
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
-          🤝 Our Trusted Partners
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+          ⭐ Customer Reviews
         </h2>
-        <p className="mt-2 text-gray-600 dark:text-gray-400">
-          Proudly collaborating with world-renowned tech brands.
+        <p className="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+          See what our customers are saying about us.
         </p>
       </div>
 

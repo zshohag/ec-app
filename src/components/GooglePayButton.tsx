@@ -627,14 +627,6 @@ export default function GooglePayButton({
         "Processing..."
       ) : (
         <>
-          {/* <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            className="fill-current"
-          >
-            <path d="M12.426 12.368c-0.064 0-0.128 0-0.192 0-1.408 0-2.112-1.856-2.112-3.2 0-1.344 0.704-3.2 2.112-3.2 0.064 0 0.128 0 0.192 0h6.336v6.4h-6.336zM5.238 5.968h6.336c0.064 0 0.128 0 0.192 0v6.4c-0.064 0-0.128 0-0.192 0h-6.336v-6.4z" />
-          </svg> */}
           Pay with
           <FcGoogle className="w-4 h-4" />
           Pay - ${total.toFixed(2)}

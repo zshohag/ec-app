@@ -6,17 +6,14 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
-
 import type { Product } from "../types/types";
-
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, ShoppingCart, Eye, Heart } from "lucide-react";
 import { addToCart } from "@/lib/store/slices/cartSlice";
 
-// Import react-hot-toast
-import toast from "react-hot-toast"; // <--- Add this line
+import toast from "react-hot-toast";
 
 interface ProductCardProps {
   product: Product;
@@ -32,22 +29,21 @@ export function ProductCard({ product, onViewDetails }: ProductCardProps) {
 
   const handleAddToCart = () => {
     if (!product.inStock) {
-      // Show error toast if out of stock
       toast.error(`${product.name} is currently out of stock.`, {
         duration: 4000,
-      }); // <--- Add this toast
+      }); 
       return;
     }
     dispatch(addToCart({ ...product, quantity: 1 }));
-    // Show success toast when added to cart
-    toast.success(`${product.name} added to cart!`, { duration: 4000 }); // <--- Add this toast
+   
+    toast.success(`${product.name} added to cart!`, { duration: 4000 }); 
   };
 
   return (
     <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden h-full flex flex-col justify-between">
-      <div className="relative" onClick={handleViewDetails}>
+      <div className="relative" >
         {/* Product Image */}
-        <div className="relative h-56 overflow-hidden">
+        <div onClick={handleViewDetails} className="relative h-56 overflow-hidden">
           <Image
             src={product.images?.[0] || "/placeholder.svg"}
             alt={product.name}

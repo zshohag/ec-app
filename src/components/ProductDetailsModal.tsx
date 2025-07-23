@@ -283,11 +283,11 @@ export function ProductDetailsModal({
 
   const [images, setImages] = useState<string[]>([]);
 
-  const discount = product?.originalPrice
-    ? Math.round(
-        ((product.originalPrice - product.price) / product.originalPrice) * 100
-      )
-    : 0;
+  // const discount = product?.originalPrice
+  //   ? Math.round(
+  //       ((product.originalPrice - product.price) / product.originalPrice) * 100
+  //     )
+  //   : 0;
 
   useEffect(() => {
     if (product) {
@@ -356,8 +356,19 @@ export function ProductDetailsModal({
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="gap-2 text-2xl font-bold">
-            {product.name}
+          <DialogTitle className="">
+            {/* Stock Status */}
+            <div className="flex items-center gap-1">
+              {product.inStock ? (
+                <>
+                  <span className="text-2xl font-bold ">{product.name}</span>
+                  <Check className="w-5 h-5 text-green-500" />
+                  <span className="text-green-600 font-semibold">In Stock</span>
+                </>
+              ) : (
+                <span className="text-red-600 font-semibold">Out of Stock</span>
+              )}
+            </div>
           </DialogTitle>
         </DialogHeader>
 
@@ -380,7 +391,7 @@ export function ProductDetailsModal({
                 <CarouselContent>
                   {images.map((image, index) => (
                     <CarouselItem key={index}>
-                      <div className="relative w-full h-72 md:h-96 rounded-lg overflow-hidden bg-gray-50">
+                      <div className="relative w-full h-68 md:h-88 rounded-lg overflow-hidden bg-gray-50">
                         <Image
                           src={image || "/placeholder.svg"}
                           alt={`${product.name} - Image ${index + 1}`}
@@ -502,11 +513,26 @@ export function ProductDetailsModal({
           <div className="space-y-4">
             {/* Rating */}
             <div className="flex items-center gap-2">
+              {/* <div className="flex items-center gap-3">
+                <span className="text-xl font-bold text-gray-900">
+                  ${product.price}
+                </span>
+                {product.originalPrice && (
+                  <>
+                    <span className="text-lg text-gray-500 line-through">
+                      ${product.originalPrice} 
+                    </span>
+                    <Badge variant="destructive" className="text-sm">
+                      {discount}% OFF
+                    </Badge>
+                  </>
+                )}
+              </div> */}
               <div className="flex items-center gap-1">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-5 h-5 ${
+                    className={`w-4 h-4 ${
                       i < Math.floor(product.rating)
                         ? "fill-yellow-400 text-yellow-400"
                         : "text-gray-300"
@@ -519,7 +545,7 @@ export function ProductDetailsModal({
             </div>
 
             {/* Price */}
-            <div className="flex items-center gap-3">
+            {/* <div className="flex items-center gap-3">
               <span className="text-3xl font-bold text-gray-900">
                 ${product.price}
               </span>
@@ -533,10 +559,10 @@ export function ProductDetailsModal({
                   </Badge>
                 </>
               )}
-            </div>
+            </div> */}
 
             {/* Stock Status */}
-            <div className="flex items-center gap-2">
+            {/* <div className="flex items-center gap-2">
               {product.inStock ? (
                 <>
                   <Check className="w-5 h-5 text-green-500" />
@@ -545,7 +571,7 @@ export function ProductDetailsModal({
               ) : (
                 <span className="text-red-600 font-semibold">Out of Stock</span>
               )}
-            </div>
+            </div> */}
           </div>
         </div>
       </DialogContent>
