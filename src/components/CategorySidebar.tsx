@@ -65,7 +65,7 @@ export function CategorySidebar({
         })}
       </div>
 
-      <div className="mt-8 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg">
+      {/* <div className="mt-8 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg">
         <h3 className="font-semibold text-gray-800 mb-2">🎉 Special Offers</h3>
         <p className="text-sm text-gray-600 mb-3">
           Get 20% off on your first order!
@@ -73,7 +73,7 @@ export function CategorySidebar({
         <Button size="sm" className="w-full">
           Claim Offer
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 }

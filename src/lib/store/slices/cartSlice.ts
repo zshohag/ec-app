@@ -1,6 +1,6 @@
-// ///////////
+// // /////////
 
-// import { CartItem, Product } from "@/types/types";
+// import { CartItem } from "@/types/types";
 // import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 // interface CartState {
@@ -21,8 +21,8 @@
 //   name: "cart",
 //   initialState,
 //   reducers: {
-//     // Accept Product and convert to CartItem
-//     addToCart: (state, action: PayloadAction<Product>) => {
+//     // Accept CartItem instead of Product
+//     addToCart: (state, action: PayloadAction<CartItem>) => {
 //       const existingItem = state.items.find(
 //         (item) => item.id === action.payload.id
 //       );
@@ -30,25 +30,11 @@
 //       if (existingItem) {
 //         existingItem.quantity += 1;
 //       } else {
-//         // Convert Product to CartItem format
-//         const cartItem: CartItem = {
-//           id: action.payload.id,
-//           name: action.payload.name,
-//           price: action.payload.price,
-//           originalPrice: action.payload.originalPrice,
-//           // image:
-//           //   action.payload.images && action.payload.images.length > 0
-//           //     ? action.payload.images[0]
-//           //     : "/placeholder.svg",
-//           images:
-//             action.payload.images && action.payload.images.length > 0
-//               ? action.payload.images
-//               : ["/placeholder.svg"], // ✅ must be array!
-//           quantity: 1,
-//           inStock: action.payload.inStock,
-//           category: action.payload.category,
-//         };
-//         state.items.push(cartItem);
+//         // Payload is already a CartItem, so no conversion needed
+//         state.items.push({
+//           ...action.payload,
+//           quantity: 1, // Ensure quantity starts at 1 for new items
+//         });
 //       }
 
 //       cartSlice.caseReducers.calculateTotals(state);
@@ -107,14 +93,9 @@
 
 // export default cartSlice.reducer;
 
+// reload  issue 
 
-
-////new try 
-
-///////////
-
-
-
+// lib/store/slices/cartSlice.ts - Simplified without manual localStorage
 import { CartItem } from "@/types/types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
@@ -136,7 +117,6 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    // Accept CartItem instead of Product
     addToCart: (state, action: PayloadAction<CartItem>) => {
       const existingItem = state.items.find(
         (item) => item.id === action.payload.id
@@ -145,10 +125,9 @@ const cartSlice = createSlice({
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
-        // Payload is already a CartItem, so no conversion needed
         state.items.push({
           ...action.payload,
-          quantity: 1, // Ensure quantity starts at 1 for new items
+          quantity: 1,
         });
       }
 
@@ -164,7 +143,7 @@ const cartSlice = createSlice({
       state,
       action: PayloadAction<{ id: string; quantity: number }>
     ) => {
-      const item = state.items.find((item) => item.id === action.payload.id);
+      const item = state.items.find((i) => i.id === action.payload.id);
       if (item) {
         item.quantity = Math.max(0, action.payload.quantity);
         if (item.quantity === 0) {
@@ -186,11 +165,11 @@ const cartSlice = createSlice({
 
     calculateTotals: (state) => {
       state.itemCount = state.items.reduce(
-        (total, item) => total + item.quantity,
+        (sum, item) => sum + item.quantity,
         0
       );
       state.total = state.items.reduce(
-        (total, item) => total + item.price * item.quantity,
+        (sum, item) => sum + item.price * item.quantity,
         0
       );
     },

@@ -496,7 +496,7 @@ export default function OrderConfirmationPage() {
             {/* Order Status */}
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
+                <CardTitle className="flex items-center gap-2 mt-2">
                   <Package className="w-5 h-5" />
                   Order Status
                 </CardTitle>
