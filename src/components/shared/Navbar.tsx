@@ -90,7 +90,7 @@ export function Navbar() {
                       </p>
                     </div>
                   </div>
-                  <DropdownMenuSeparator />
+                  {/* <DropdownMenuSeparator /> */}
 
                   {/* <DropdownMenuItem asChild>
                     <Link href="/dashboard/user" className="flex items-center">

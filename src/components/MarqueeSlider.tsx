@@ -12,7 +12,7 @@ const reviews = [
   {
     name: "Jill",
     username: "@jill",
-    body: "Everything was exactly as described. Great customer support and smooth checkout process.",
+    body: "Everything was exactly as described. Great customer support and smooth checkout process. 10/10 experience!",
     img: "https://avatar.vercel.sh/jill",
   },
   {
@@ -36,7 +36,7 @@ const reviews = [
   {
     name: "James",
     username: "@james",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    body: "Super impressed with the packaging and delivery. The products are truly premium.",
     img: "https://avatar.vercel.sh/james",
   },
 ];

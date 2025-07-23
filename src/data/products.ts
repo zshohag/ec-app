@@ -636,7 +636,7 @@ export const products: Product[] = [
   // Grocery (8 products)
   {
     id: "27",
-    name: "Organic Fair-Trade Coffee Beans 1kg",
+    name: "Organic Coffee Beans",
     price: 19.99,
     images: [
       "https://i.ibb.co/p6MDnTrS/Organic-Fair-Trade-Coffee-Beans1.jpg",
@@ -708,7 +708,7 @@ export const products: Product[] = [
   },
   {
     id: "30",
-    name: "Extra Virgin Olive Oil 750ml",
+    name: "Olive Oil",
     price: 16.99,
     images: [
       "https://i.ibb.co/tTbVrHcG/Extra-Virgin-Olive-Oil1.jpg",
@@ -777,7 +777,7 @@ export const products: Product[] = [
   },
   {
     id: "33",
-    name: "Almond Butter 500g",
+    name: "Almond Butter",
     price: 11.99,
     images: [
       "https://i.ibb.co/LhJ8WqdJ/Almond-Butter1.jpg",
@@ -923,7 +923,7 @@ export const products: Product[] = [
   },
   {
     id: "39",
-    name: "Canvas Boards 8x10 Pack of 10",
+    name: "Canvas Boards",
     price: 15.99,
     images: [
       "https://i.ibb.co/TxPyht35/Canvas-Boards-8x10-Pack-of-101.jpg",
@@ -1242,7 +1242,7 @@ export const products: Product[] = [
   },
   {
     id: "52",
-    name: "Glazed Ceramic Hanging Planter",
+    name: "Ceramic Hanging Planter",
     price: 24.99,
     images: [
       "https://i.ibb.co/kgxcPzM1/Glazed1.jpg",
