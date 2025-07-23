@@ -13,7 +13,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { User, LogOut, Package, ShoppingCart } from "lucide-react";
+import { User, LogOut, ShoppingCart } from "lucide-react";
 
 export function Navbar() {
   const { data: session, status } = useSession();
@@ -92,7 +92,7 @@ export function Navbar() {
                   </div>
                   <DropdownMenuSeparator />
 
-                  <DropdownMenuItem asChild>
+                  {/* <DropdownMenuItem asChild>
                     <Link href="/dashboard/user" className="flex items-center">
                       <User className="mr-2 h-4 w-4" />
                       Dashboard
@@ -107,7 +107,7 @@ export function Navbar() {
                       <Package className="mr-2 h-4 w-4" />
                       My Orders
                     </Link>
-                  </DropdownMenuItem>
+                  </DropdownMenuItem> */}
 
                   <DropdownMenuSeparator />
                   <DropdownMenuItem

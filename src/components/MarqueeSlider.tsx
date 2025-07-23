@@ -87,7 +87,7 @@ const ReviewCard = ({
 
 export function MarqueeSlider() {
   return (
-    <div className="relative flex max-w-7xl w-full flex-col items-center justify-center overflow-hidden mb-14 mt-14  ">
+    <div className="relative flex max-w-7xl w-full mx-auto flex-col items-center justify-center overflow-hidden mb-14 mt-14  ">
       <div className=" mx-auto px-4 text-center mb-8">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
           🤝 Our Trusted Partners

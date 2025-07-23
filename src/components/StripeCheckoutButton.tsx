@@ -49,7 +49,7 @@ export default function StripeCheckoutButton({
 
   return (
     <Button
-      className="w-full bg-black text-white  py-3 text-lg"
+      className="w-full bg-black text-white py-3 text-lg flex items-center justify-center gap-2 hover:bg-gray-800"
       onClick={handleStripeCheckout}
       disabled={loading}
     >
@@ -59,7 +59,7 @@ export default function StripeCheckoutButton({
         <>
           {/* <CreditCard className="w-4 h-4" />
           Pay with Card - ${total.toFixed(2)} */}
-          <div className="flex items-center gap-2 text-sm font-medium text-gray-800">
+          <div className="flex items-center ">
             <span>Pay with Card</span>
             <Image
               src="/images/credit.png"
