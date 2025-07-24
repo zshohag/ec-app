@@ -54,8 +54,8 @@ export function Footer() {
             Contact
           </h3>
           <ul className="space-y-2 text-sm">
-            <li>Email: support@shophub.com</li>
-            <li>Phone: +1 (800) 555-1234</li>
+            <li>Email: support@moshiurtamimllc.com</li>
+            <li>Phone: +1 (808) 720-6730</li> 
             <li>Location: Silicon Valley, CA</li>
           </ul>
         </div>

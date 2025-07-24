@@ -14,7 +14,10 @@ export default function RelatedProducts() {
 
   if (isLoading) {
     return (
-      <div className="text-center py-20 text-xl text-gray-600">Loading...</div>
+      <div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
+        <p className="text-gray-600">Loading products...</p>
+      </div>
     );
   }
 

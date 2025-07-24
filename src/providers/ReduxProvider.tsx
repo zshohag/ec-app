@@ -1,5 +1,3 @@
-
-
 // // lib/providers/redux-provider.tsx
 // "use client";
 
@@ -14,17 +12,15 @@
 //   );
 // }
 
-
-/// new update with persist 
-
+/// new update with persist
 
 // components/providers/ReduxProvider.tsx
-'use client';
+"use client";
 
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import { store, persistor } from '@/lib/store';
-import { ReactNode } from 'react';
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { store, persistor } from "@/lib/store";
+import { ReactNode } from "react";
 
 interface ReduxProviderProps {
   children: ReactNode;
@@ -33,7 +29,17 @@ interface ReduxProviderProps {
 export default function ReduxProvider({ children }: ReduxProviderProps) {
   return (
     <Provider store={store}>
-      <PersistGate loading={<div>Loading...</div>} persistor={persistor}>
+      <PersistGate
+        loading={
+          <div className="min-h-screen flex items-center justify-center">
+            <div>
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
+              <p className="text-gray-600 text-center">Loading...</p>
+            </div>
+          </div>
+        }
+        persistor={persistor}
+      >
         {children}
       </PersistGate>
     </Provider>

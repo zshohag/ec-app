@@ -242,7 +242,8 @@
 //   );
 // }
 
-// NEW SLIDER ADD
+// NEW SLIDER ADD 
+
 
 "use client";
 
@@ -283,11 +284,6 @@ export function ProductDetailsModal({
 
   const [images, setImages] = useState<string[]>([]);
 
-  // const discount = product?.originalPrice
-  //   ? Math.round(
-  //       ((product.originalPrice - product.price) / product.originalPrice) * 100
-  //     )
-  //   : 0;
 
   useEffect(() => {
     if (product) {
