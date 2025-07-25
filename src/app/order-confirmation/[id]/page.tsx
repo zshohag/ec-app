@@ -395,7 +395,7 @@ import {
   CreditCard,
   ArrowLeft,
 } from "lucide-react";
-import Image from "next/image";
+//import Image from "next/image";
 import Link from "next/link";
 import { CartItem } from "@/types/types";
 
@@ -496,12 +496,12 @@ export default function OrderConfirmationPage() {
             {/* Order Status */}
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 mt-2">
+                <CardTitle className="flex items-center gap-2 mt-4">
                   <Package className="w-5 h-5" />
-                  Order Status
+                  Order Status 
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="mb-4" >
                 <div className="flex items-center justify-between">
                   <Badge className={getStatusColor(currentOrder.status)}>
                     {currentOrder.status}
@@ -522,16 +522,16 @@ export default function OrderConfirmationPage() {
             {/* Order Items */}
             <Card>
               <CardHeader>
-                <CardTitle>Order Items</CardTitle>
+                <CardTitle className='mt-4'  >Order Items</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className='mb-4'  >
                 <div className="space-y-4">
                   {currentOrder.items.map((item: CartItem) => (
                     <div
                       key={item.id}
                       className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg"
                     >
-                      <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center">
+                      {/* <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center">
                         {item.images ? (
                           <Image
                             src={item.images?.[0]}
@@ -543,7 +543,7 @@ export default function OrderConfirmationPage() {
                         ) : (
                           <Package className="w-8 h-8 text-gray-400" />
                         )}
-                      </div>
+                      </div> */}
                       <div className="flex-1">
                         <h3 className="font-semibold text-gray-900">
                           {item.name}
@@ -569,12 +569,12 @@ export default function OrderConfirmationPage() {
             {/* Shipping Information */}
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
+                <CardTitle className="flex items-center gap-2 mt-4 ">
                   <MapPin className="w-5 h-5" />
                   Shipping Information
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className='mb-4'  >
                 <div className="space-y-2">
                   <p className="font-semibold">
                     {currentOrder.shippingAddress.firstName}{" "}
@@ -606,9 +606,9 @@ export default function OrderConfirmationPage() {
             {/* Order Summary */}
             <Card>
               <CardHeader>
-                <CardTitle>Order Summary</CardTitle>
+                <CardTitle className='mt-4' >Order Summary</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-4 mb-4 ">
                 <div className="flex justify-between text-sm">
                   <span>Subtotal</span>
                   <span>{formatCurrency(currentOrder.subtotal)}</span>
@@ -658,12 +658,12 @@ export default function OrderConfirmationPage() {
 
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
+                <CardTitle className="flex items-center gap-2 mt-4 ">
                   <CreditCard className="w-5 h-5" />
                   Payment Method
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className='mb-4' >
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-gray-100 rounded flex items-center justify-center">
                     <CreditCard className="w-4 h-4 text-gray-600" />

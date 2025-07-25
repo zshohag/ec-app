@@ -1,5 +1,3 @@
-
-
 // //// new  try more
 
 // "use client";
@@ -217,15 +215,11 @@
 
 // export default PaymentPage;
 
-
-///////try 
+///////try
 
 // src/app/payment/page.tsx
 
-"use client"; // This 'use client' directive applies to this entire file,
-             // meaning both PaymentPage and PaymentContent will be client components.
-             // The Suspense boundary helps Next.js understand when to hydrate PaymentContent.
-
+"use client"; 
 import CheckoutForm from "@/components/CheckoutForm";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
@@ -438,7 +432,7 @@ const PaymentContent = () => {
   // Main rendering of the payment form
   return (
     <div className="p-10 max-w-7xl w-full ">
-      <h2 className="text-xl mb-4">Pay with Card</h2>
+      {/* <h2 className="text-xl mb-4">Pay with Card</h2> */}
       {loading && <p>Loading payment form...</p>}
       {error && <p className="text-red-500">{error}</p>}
       {clientSecret && stripePromise && (

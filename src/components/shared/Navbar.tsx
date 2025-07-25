@@ -13,7 +13,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { User, LogOut, ShoppingCart } from "lucide-react";
+import { User, LogOut } from "lucide-react";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 export function Navbar() {
   const { data: session, status } = useSession();
@@ -62,7 +63,7 @@ export function Navbar() {
           <div className="flex items-center gap-4">
             {/* Cart Icon with Count */}
             <Link href="/cart" className="relative group">
-              <ShoppingCart className="w-6 h-6 text-gray-700 hover:text-gray-900 transition-colors" />
+              <AiOutlineShoppingCart className="w-6 h-6 text-gray-700 hover:text-gray-900 transition-colors" />
               {itemCount > 0 && (
                 <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5 shadow">
                   {itemCount}
