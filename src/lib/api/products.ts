@@ -10,12 +10,14 @@ const fetchProducts = async (): Promise<Product[]> => {
   return response.json()
 }
 
+// Fetch a single product by ID
 const fetchProduct = async (id: string): Promise<Product> => {
   const response = await fetch(`/api/products/${id}`)
   if (!response.ok) throw new Error("Failed to fetch product")
   return response.json()
 }
 
+// Create a new product
 const createProduct = async (product: Omit<Product, "id">): Promise<Product> => {
   const response = await fetch("/api/products", {
     method: "POST",
@@ -35,6 +37,7 @@ export const useProducts = () => {
   })
 }
 
+// Hook to fetch a single product by ID
 export const useProduct = (id: string) => {
   return useQuery({
     queryKey: ["product", id],
@@ -43,6 +46,8 @@ export const useProduct = (id: string) => {
   })
 }
 
+
+// Hook to create a new product
 export const useCreateProduct = () => {
   const queryClient = useQueryClient()
 
@@ -54,6 +59,8 @@ export const useCreateProduct = () => {
   })
 }
 
+
+// Hook to update an existing product
 export const useUpdateProduct = () => {
   const queryClient = useQueryClient()
 

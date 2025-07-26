@@ -31,19 +31,22 @@ export function ProductCard({ product, onViewDetails }: ProductCardProps) {
     if (!product.inStock) {
       toast.error(`${product.name} is currently out of stock.`, {
         duration: 4000,
-      }); 
+      });
       return;
     }
     dispatch(addToCart({ ...product, quantity: 1 }));
-   
-    toast.success(`${product.name} added to cart!`, { duration: 4000 }); 
+
+    toast.success(`${product.name} added to cart!`, { duration: 4000 });
   };
 
   return (
     <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden h-full flex flex-col justify-between">
-      <div className="relative" >
+      <div className="relative">
         {/* Product Image */}
-        <div onClick={handleViewDetails} className="relative h-56 overflow-hidden">
+        <div
+          onClick={handleViewDetails}
+          className="relative h-56 overflow-hidden"
+        >
           <Image
             src={product.images?.[0] || "/placeholder.svg"}
             alt={product.name}

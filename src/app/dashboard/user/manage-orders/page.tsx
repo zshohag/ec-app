@@ -6,15 +6,14 @@
 //   );
 // }
 
+"use client";
 
-'use client';
-
-import { format } from 'date-fns';
-import { formatCurrency } from '@/lib/utils';
-import { Loader2, AlertCircle } from 'lucide-react';
-import { useUserOrders } from '@/lib/hooks/useUserOrders';
-import Image from 'next/image';
-import { Order, CartItem } from '@/types/types';
+import { format } from "date-fns";
+import { formatCurrency } from "@/lib/utils";
+import { Loader2, AlertCircle } from "lucide-react";
+import { useUserOrders } from "@/lib/hooks/useUserOrders";
+import Image from "next/image";
+import { Order, CartItem } from "@/types/types";
 
 export default function UserOrdersPage() {
   const { data: orders, isLoading, isError } = useUserOrders();
@@ -55,9 +54,11 @@ export default function UserOrdersPage() {
                   <p className="text-sm text-gray-500">{order.id}</p>
                 </div>
                 <div className="text-sm text-right text-gray-600">
-                  <p>Status: <span className="font-medium">{order.status}</span></p>
+                  <p>
+                    Status: <span className="font-medium">{order.status}</span>
+                  </p>
                   {order.createdAt && (
-                    <p>{format(new Date(order.createdAt), 'PPP')}</p>
+                    <p>{format(new Date(order.createdAt), "PPP")}</p>
                   )}
                 </div>
               </div>
@@ -69,7 +70,7 @@ export default function UserOrdersPage() {
                     className="flex items-center gap-4 border rounded-md p-2"
                   >
                     <Image
-                      src={item.images?.[0] || "/placeholder.svg"} // ✅ fallback path
+                      src={item.image || "/placeholder.svg"}
                       alt={item.name}
                       width={64}
                       height={64}

@@ -1,69 +1,3 @@
-// import type { Metadata } from "next";
-// import { Poppins, Geist, Geist_Mono } from "next/font/google";
-// import "./globals.css";
-// import { Navbar } from "@/components/shared/Navbar";
-// import { Footer } from "@/components/shared/Footer";
-// import { NextAuthProvider } from "@/providers/SessionProvider";
-// import { Providers as QueryProviders } from "@/providers/QueryProvider";
-// import { ReduxProvider } from "@/providers/ReduxProvider";
-// import { Toaster } from "react-hot-toast";
-
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
-
-// const poppins = Poppins({
-//   subsets: ["latin"],
-//   variable: "--font-poppins",
-//   weight: ["400", "500", "600", "700"],
-// });
-
-// export const metadata: Metadata = {
-//   title: "ShopHub",
-//   description: "A modern e-commerce app",
-// };
-
-// export default function RootLayout({
-//   children,
-// }: Readonly<{
-//   children: React.ReactNode;
-// }>) {
-//   return (
-//     <html lang="en" suppressHydrationWarning>
-//       <head>
-//         <script async src="https://pay.google.com/gp/p/js/pay.js"></script>
-//       </head>
-//       <body
-//         className={`
-//     ${geistSans.variable} 
-//     ${geistMono.variable} 
-//     ${poppins.variable} 
-//     font-sans
-//   `}
-//         suppressHydrationWarning
-//       >
-//         <NextAuthProvider>
-//           <QueryProviders>
-//             <ReduxProvider>
-//               <Navbar />
-//               {children}
-//               <Footer />
-//             </ReduxProvider>
-//           </QueryProviders>
-//         </NextAuthProvider>
-//         <Toaster position="top-center" reverseOrder={false} />
-//       </body>
-//     </html>
-//   );
-// }
-
-
 import type { Metadata } from "next";
 import { Poppins, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -91,7 +25,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "ShopHub",
+  title: "Moshiur Tamim LLC",
   description: "A modern e-commerce app",
 };
 
@@ -103,6 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="icon" type="image/png" href="/website.png" />
         <script async src="https://pay.google.com/gp/p/js/pay.js"></script>
       </head>
       <body
@@ -128,6 +63,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-
-

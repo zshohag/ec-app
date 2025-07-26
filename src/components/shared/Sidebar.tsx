@@ -15,34 +15,51 @@ import {
   Package,
   Users,
   CreditCard,
-  Star,
+  // Star,
   Plus,
   ShoppingCart,
   Home,
 } from "lucide-react";
+import { useSession } from "next-auth/react";
 
 const adminLinks = [
   { href: "/dashboard/admin", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/dashboard/admin/manage-products", label: "Manage Products", icon: Package },
+  {
+    href: "/dashboard/admin/manage-products",
+    label: "Manage Products",
+    icon: Package,
+  },
   { href: "/dashboard/admin/add-product", label: "Add Product", icon: Plus },
   { href: "/dashboard/admin/manage-users", label: "Manage Users", icon: Users },
-  { href: "/dashboard/admin/manage-orders", label: "Manage Orders", icon: ShoppingCart },
-  { href: "/dashboard/admin/payment-history", label: "Payments", icon: CreditCard },
-  { href: "/dashboard/admin/reviews", label: "Reviews", icon: Star },
+  {
+    href: "/dashboard/admin/manage-orders",
+    label: "Manage Orders",
+    icon: ShoppingCart,
+  },
+  {
+    href: "/dashboard/admin/payment-history",
+    label: "Payments",
+    icon: CreditCard,
+  },
+  // { href: "/dashboard/admin/reviews", label: "Reviews", icon: Star },
 ];
 
 const userLinks = [
-  { href: "/dashboard/user", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/dashboard/user/manage-orders", label: "My Orders", icon: ShoppingCart },
+  // { href: "/dashboard/user", label: "Dashboard", icon: LayoutDashboard },
+  {
+    href: "/dashboard/user/manage-orders",
+    label: "My Orders",
+    icon: ShoppingCart,
+  },
   { href: "/dashboard/user/payment", label: "Payment", icon: CreditCard },
-  { href: "/dashboard/user/reviews", label: "My Reviews", icon: Star },
+  // { href: "/dashboard/user/reviews", label: "My Reviews", icon: Star },
 ];
 
 export function Sidebar() {
-  //const { data: session } = useSession();
+  const { data: session } = useSession();
   const pathname = usePathname();
-  //const role = session?.user?.role || "user"; // default to user
-  const  role = "admin"
+  const role = session?.user?.role || "user"; // default to user
+  //const  role = "admin"
   const links = role === "admin" ? adminLinks : userLinks;
 
   return (
