@@ -7,11 +7,11 @@ import Link from "next/link";
 export function Footer() {
   return (
     <footer className="bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 border-t ">
-      <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
         {/* Logo + About */}
         <div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-            🛍️ ShopHub
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+            Moshiur Tamim LLC
           </h2>
           <p className="text-sm">
             Your one-stop destination for the latest tech, gadgets, and premium
@@ -54,9 +54,9 @@ export function Footer() {
             Contact
           </h3>
           <ul className="space-y-2 text-sm">
-            <li>Email: support@moshiurtamimllc.com</li>
+            <li>Email: info@moshiurtamim.com</li>
             <li>Phone: +1 (808) 720-6730</li>
-            <li>Location: Silicon Valley, CA</li>
+            <li>Location: Honolulu, HI</li>
           </ul>
         </div>
 
@@ -79,7 +79,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-gray-300 dark:border-gray-700 py-4 text-center text-sm">
-        © {new Date().getFullYear()} ShopHub. All rights reserved.
+        © {new Date().getFullYear()} Moshiur Tamim LLC. All rights reserved.
       </div>
     </footer>
   );

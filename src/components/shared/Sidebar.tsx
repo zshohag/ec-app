@@ -51,7 +51,7 @@ const userLinks = [
     label: "My Orders",
     icon: ShoppingCart,
   },
-  { href: "/dashboard/user/payment", label: "Payment", icon: CreditCard },
+  // { href: "/dashboard/user/payment", label: "Payment", icon: CreditCard },
   // { href: "/dashboard/user/reviews", label: "My Reviews", icon: Star },
 ];
 
@@ -67,9 +67,9 @@ export function Sidebar() {
       <div className="mb-6">
         <Link
           href="/"
-          className="text-xl font-bold text-gray-800 flex items-center gap-2"
+          className="text-xl font-semi-bold text-gray-800 flex items-center gap-2"
         >
-          <Home className="w-5 h-5" /> ShopHub
+          <Home className="w-5 h-5" /> Home
         </Link>
       </div>
       <nav className="space-y-2">

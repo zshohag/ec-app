@@ -60,10 +60,18 @@ export function ProductCard({ product, onViewDetails }: ProductCardProps) {
             </Badge>
           )}
 
-          {!product.inStock && (
+          {/* {!product.inStock && (
             <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
               <Badge variant="destructive" className="text-lg px-4 py-2">
                 Out of Stock
+              </Badge>
+            </div>
+          )} */}
+          {/*  */}
+          {(!product.inStock || product.badge === "Upcoming") && (
+            <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-10">
+              <Badge variant="destructive" className="text-lg px-4 py-2">
+                {!product.inStock ? "Out of Stock" : "Upcoming"}
               </Badge>
             </div>
           )}
@@ -77,9 +85,11 @@ export function ProductCard({ product, onViewDetails }: ProductCardProps) {
 
         {/* Product Info */}
         <CardContent className="p-4">
-          <h3 className="font-semibold text-lg mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
-            {product.name}
-          </h3>
+          <div onClick={handleViewDetails}>
+            <h3 className="font-semibold text-lg mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
+              {product.name}
+            </h3>
+          </div>
 
           <div className="flex items-center gap-1 mb-2">
             {[...Array(5)].map((_, i) => (
@@ -132,7 +142,7 @@ export function ProductCard({ product, onViewDetails }: ProductCardProps) {
         <div className="flex gap-2">
           <Button
             onClick={handleAddToCart}
-            disabled={!product.inStock}
+            disabled={!product.inStock || product.badge === "Upcoming"}
             className="flex-1"
           >
             <ShoppingCart className="w-4 h-4 mr-2" />

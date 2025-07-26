@@ -10,7 +10,7 @@
 //       <section className="py-16 px-4 text-center">
 //         <div className="max-w-3xl mx-auto">
 //           <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
-//             🛍️ Welcome to ShopHub
+//             🛍️ Welcome to Moshiur Tamim LLC Store
 //           </h1>
 //           <p className="text-lg text-gray-700 mb-6">
 //             Discover top-quality items across Health & Beauty, Baby Products, Home & Kitchen, Grocery,
@@ -77,9 +77,9 @@
 //       {/* About Us Text */}
 //       <section className="py-16 px-4 bg-gray-100">
 //         <div className="max-w-4xl mx-auto text-center">
-//           <h2 className="text-3xl font-bold mb-4">Why Choose ShopHub?</h2>
+//           <h2 className="text-3xl font-bold mb-4">Why Choose Moshiur Tamim LLC Store?</h2>
 //           <p className="text-gray-700 text-lg leading-relaxed">
-//             At ShopHub, we bring you a carefully curated range of Health & Beauty essentials, Baby Products,
+//             At Moshiur Tamim LLC Store, we bring you a carefully curated range of Health & Beauty essentials, Baby Products,
 //             kitchenware, snacks, crafts, and gardening tools. With fast delivery, great prices, and excellent customer service,
 //             shopping has never been more satisfying.
 //           </p>
@@ -110,7 +110,7 @@ import { Button } from "@/components/ui/button";
 import {
   Truck,
   Tag,
-  Sparkles,
+  // Sparkles,
   Star,
   Heart,
   Baby,
@@ -128,7 +128,7 @@ export default function AboutPage() {
       <section className="py-16 px-4 text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent mb-6">
-            Welcome to ShopHub
+            Welcome to Moshiur Tamim LLC Store
           </h1>
           <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
             Your ultimate destination for everything you need and love. From
@@ -169,7 +169,7 @@ export default function AboutPage() {
             </div>
             <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 text-center">
               <ShoppingCart className="w-8 h-8 mx-auto text-orange-500 mb-3" />
-              <h3 className="font-semibold text-sm">Grocery</h3>
+              <h3 className="font-semibold text-sm">Grocery & Gourmet Food</h3>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 text-center">
               <Candy className="w-8 h-8 mx-auto text-red-500 mb-3" />
@@ -192,7 +192,7 @@ export default function AboutPage() {
         <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent">
           Why Shop With Us?
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
           <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
             <Truck className="w-12 h-12 mx-auto text-blue-600 mb-4" />
             <h3 className="text-xl font-semibold mb-3 text-gray-900">
@@ -229,7 +229,7 @@ export default function AboutPage() {
             </Link>
           </div>
 
-          <div className="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+          {/* <div className="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
             <Sparkles className="w-12 h-12 mx-auto text-green-600 mb-4" />
             <h3 className="text-xl font-semibold mb-3 text-gray-900">
               New Arrivals
@@ -245,7 +245,7 @@ export default function AboutPage() {
                 Explore →
               </Button>
             </Link>
-          </div>
+          </div> */}
 
           <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
             <Star className="w-12 h-12 mx-auto text-yellow-600 mb-4" />
@@ -271,15 +271,15 @@ export default function AboutPage() {
       <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent">
-            Why Choose ShopHub?
+            Why Choose Moshiur Tamim LLC Store?
           </h2>
           <div className="bg-white p-8 rounded-2xl shadow-lg">
             <p className="text-gray-700 text-lg leading-relaxed mb-6">
-              At ShopHub, we believe shopping should be exciting, easy, and
-              affordable. Whether you&apos;re looking for health & beauty
-              essentials, baby products, home & kitchen necessities, fresh
-              groceries, sweet treats, creative art supplies, or garden tools —
-              we&apos;ve got you covered.
+              At Moshiur Tamim LLC Store, we believe shopping should be
+              exciting, easy, and affordable. Whether you&apos;re looking for
+              health & beauty essentials, baby products, home & kitchen
+              necessities, fresh groceries, sweet treats, creative art supplies,
+              or garden tools — we&apos;ve got you covered.
             </p>
             <p className="text-gray-600 leading-relaxed">
               Our curated collections span across all aspects of your life,
@@ -298,8 +298,8 @@ export default function AboutPage() {
             Ready to discover amazing deals across all categories?
           </h3>
           <p className="text-gray-600 mb-6">
-            Join thousands of happy customers who trust ShopHub for all their
-            shopping needs.
+            Join thousands of happy customers who trust Moshiur Tamim LLC Store
+            for all their shopping needs.
           </p>
           <Link href="/products">
             <Button

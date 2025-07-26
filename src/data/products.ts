@@ -1,12 +1,4 @@
-import {
-  Heart,
-  Baby,
-  Home,
-  Soup,
-  Paintbrush2,
-  Candy,
-  Fence,
-} from "lucide-react";
+import { Heart, Baby, Home, Soup, Paintbrush2, Fence } from "lucide-react";
 
 import type { Product, Category } from "../types/types";
 
@@ -1026,7 +1018,7 @@ export const products: Product[] = [
       "https://i.ibb.co/zhKzYpr6/Milk2.jpg",
       "https://i.ibb.co/zhKzYpr6/Milk3.jpg",
     ],
-    category: "chocolate",
+    category: "grocery",
     quantity: 75,
     description: "Smooth milk chocolate bar with crunchy roasted almonds.",
     features: [
@@ -1050,7 +1042,7 @@ export const products: Product[] = [
       "https://i.ibb.co/GvM4qjdy/Raspberry2.jpg",
       "https://i.ibb.co/Mydx4pPD/Raspberry3.jpg",
     ],
-    category: "chocolate",
+    category: "grocery",
     quantity: 40,
     description: "Creamy white chocolate bites with a tangy raspberry filling.",
     features: [
@@ -1074,7 +1066,7 @@ export const products: Product[] = [
       "https://i.ibb.co/TMyt5TpC/Assorted2.jpg",
       "https://i.ibb.co/1GrB85Pt/Assorted3.webp",
     ],
-    category: "chocolate",
+    category: "grocery",
     quantity: 30,
     description:
       "A selection of milk, dark, and white chocolate pralines with various fillings.",
@@ -1099,7 +1091,7 @@ export const products: Product[] = [
       "https://i.ibb.co/NnSQv628/Hazelnut2.jpg",
       "https://i.ibb.co/FbB3nN1x/Hazelnut3.jpg",
     ],
-    category: "chocolate",
+    category: "grocery",
     quantity: 60,
     description:
       "Rich and creamy hazelnut chocolate spread, perfect for breakfast or snacks.",
@@ -1125,7 +1117,7 @@ export const products: Product[] = [
       "https://i.ibb.co/DHWb2YdB/Gummy2.jpg",
       "https://i.ibb.co/kgTKKvxj/Gummy3.jpg",
     ],
-    category: "chocolate",
+    category: "grocery",
     quantity: 100,
     description: "A colorful mix of fruity gummy bears, perfect for snacking.",
     features: [
@@ -1149,7 +1141,7 @@ export const products: Product[] = [
       "https://i.ibb.co/WWhHbyDy/Sour2.jpg",
       "https://i.ibb.co/ds7QQQfG/Sour3.jpg",
     ],
-    category: "chocolate",
+    category: "grocery",
     quantity: 80,
     description:
       "Tangy and zesty sour lemon hard candies for a bold flavor burst.",
@@ -1174,7 +1166,7 @@ export const products: Product[] = [
       "https://i.ibb.co/svTyMzr4/Caramel2.webp",
       "https://i.ibb.co/zW782kCx/Caramel3.jpg",
     ],
-    category: "chocolate",
+    category: "grocery",
     quantity: 60,
     description: "Rich and creamy caramel toffee chews with a buttery taste.",
     features: [
@@ -1315,6 +1307,157 @@ export const products: Product[] = [
     inStock: true,
     badge: "Space-Saving",
   },
+
+  {
+    id: "55",
+    name: "Hydrating Facial Moisturizer",
+    price: 24.99,
+    images: [
+      "https://i.ibb.co/xyz1/moisturizer1.jpg",
+      "https://i.ibb.co/xyz2/moisturizer2.jpg",
+      "https://i.ibb.co/xyz3/moisturizer3.jpg",
+    ],
+    category: "health-beauty",
+    quantity: 120,
+    description:
+      "Lightweight, non-greasy facial moisturizer with hyaluronic acid for all-day hydration.",
+    features: [
+      "Hyaluronic acid formula",
+      "Non-comedogenic",
+      "Paraben-free",
+      "Suitable for all skin types",
+      "Quick-absorbing",
+    ],
+    rating: 4.7,
+    reviews: 215,
+    inStock: true,
+    badge: "Upcoming",
+  },
+  {
+    id: "56",
+    name: "Adjustable Baby Bottle Warmer",
+    price: 39.99,
+    images: [
+      "https://i.ibb.co/abc1/bottlewarmer1.jpg",
+      "https://i.ibb.co/abc2/bottlewarmer2.jpg",
+      "https://i.ibb.co/abc3/bottlewarmer3.jpg",
+    ],
+    category: "baby",
+    quantity: 85,
+    description:
+      "Portable bottle warmer with precise temperature control for safe feeding.",
+    features: [
+      "Digital temperature display",
+      "Fast heating",
+      "Fits most bottle sizes",
+      "Auto shut-off",
+      "Portable design",
+    ],
+    rating: 4.9,
+    reviews: 340,
+    inStock: true,
+    badge: "Upcoming",
+  },
+  {
+    id: "57",
+    name: "Smart Air Fryer",
+    price: 89.99,
+    images: [
+      "https://i.ibb.co/def1/airfryer1.jpg",
+      "https://i.ibb.co/def2/airfryer2.jpg",
+      "https://i.ibb.co/def3/airfryer3.jpg",
+    ],
+    category: "home-kitchen",
+    quantity: 65,
+    description:
+      "Compact air fryer with Wi-Fi connectivity for healthy, crispy meals.",
+    features: [
+      "5-quart capacity",
+      "App-controlled cooking",
+      "Non-stick basket",
+      "8 preset cooking modes",
+      "Dishwasher-safe parts",
+    ],
+    rating: 4.6,
+    reviews: 180,
+    inStock: true,
+    badge: "Upcoming",
+  },
+  {
+    id: "58",
+    name: "Organic Quinoa",
+    price: 12.49,
+    images: [
+      "https://i.ibb.co/ghi1/quinoa1.jpg",
+      "https://i.ibb.co/ghi2/quinoa2.jpg",
+      "https://i.ibb.co/ghi3/quinoa3.jpg",
+    ],
+    category: "grocery",
+    quantity: 200,
+    description:
+      "Premium organic quinoa, perfect for salads, bowls, and side dishes.",
+    features: [
+      "USDA organic certified",
+      "Non-GMO",
+      "Gluten-free",
+      "High in protein",
+      "Resealable bag",
+    ],
+    rating: 4.8,
+    reviews: 150,
+    inStock: true,
+    badge: "Upcoming",
+  },
+  {
+    id: "59",
+    name: "Watercolor Paint Set",
+    price: 19.95,
+    images: [
+      "https://i.ibb.co/jkl1/paintset1.jpg",
+      "https://i.ibb.co/jkl2/paintset2.jpg",
+      "https://i.ibb.co/jkl3/paintset3.jpg",
+    ],
+    category: "art-craft",
+    quantity: 90,
+    description:
+      "Vibrant watercolor paint set for beginners and professionals alike.",
+    features: [
+      "24 vivid colors",
+      "Non-toxic",
+      "Portable tin case",
+      "High pigment quality",
+      "Includes brush",
+    ],
+    rating: 4.7,
+    reviews: 260,
+    inStock: true,
+    badge: "Upcoming",
+  },
+  {
+    id: "60",
+    name: "Cordless Electric Lawn Trimmer",
+    price: 79.99,
+    images: [
+      "https://i.ibb.co/mno1/trimmer1.jpg",
+      "https://i.ibb.co/mno2/trimmer2.jpg",
+      "https://i.ibb.co/mno3/trimmer3.jpg",
+    ],
+    category: "lawn-garden",
+    quantity: 45,
+    description:
+      "Lightweight cordless trimmer for precise lawn and garden maintenance.",
+    features: [
+      "20V battery",
+      "Adjustable cutting width",
+      "Ergonomic handle",
+      "2-in-1 trimmer and edger",
+      "Quick-charge battery",
+    ],
+    rating: 4.5,
+    reviews: 200,
+    inStock: true,
+    badge: "Upcoming",
+  },
 ];
 
 export const categories: Category[] = [
@@ -1339,16 +1482,9 @@ export const categories: Category[] = [
   },
   {
     id: "grocery",
-    name: "Grocery",
+    name: "Grocery & Gourmet Food",
     icon: Soup,
     count: products.filter((p) => p.category === "grocery").length,
-  },
-
-  {
-    id: "chocolate",
-    name: "Choclate & Candy",
-    icon: Candy,
-    count: products.filter((p) => p.category === "chocolate").length,
   },
   {
     id: "art-craft",
