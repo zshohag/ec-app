@@ -43,14 +43,14 @@ export default function ContactForm() {
         <div className="space-y-10">
           <div className="space-y-4">
             <Badge variant="secondary" className="w-fit">
-              Contact ShopHub
+              Contact
             </Badge>
             <h1 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent">
               Let&apos;s Start a Conversation
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Have a question about your order, a product, or want to partner
-              with ShopHub? Send us a message and we&apos;ll get back to you
+              with us? Send us a message and we&apos;ll get back to you
               quickly.
             </p>
           </div>
