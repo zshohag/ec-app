@@ -483,9 +483,9 @@ export default function ProductDetailsPage() {
   if (isLoading) {
     return (
       <div className="text-center py-12">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
-                <p className="text-gray-600">Loading products...</p>
-              </div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
+        <p className="text-gray-600">Loading product...</p>
+      </div>
     );
   }
 
@@ -780,7 +780,7 @@ export default function ProductDetailsPage() {
             {/* Add to Cart Button */}
             <div className="flex-1">
               <Button
-                disabled={!product.inStock}
+                disabled={!product.inStock || product.badge === "Coming Soon"}
                 onClick={handleAddToCart}
                 className="w-full text-lg px-6 py-5 bg-black text-white"
               >

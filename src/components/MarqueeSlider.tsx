@@ -4,6 +4,36 @@ import Image from "next/image";
 
 const reviews = [
   {
+    name: "Liam Carter",
+    username: "@liamcarter",
+    body: "Amazing experience! The item arrived exactly as described. Highly recommend this store.",
+    img: "https://avatar.vercel.sh/liam",
+  },
+  {
+    name: "Ava Patel",
+    username: "@avap",
+    body: "Customer support was super helpful when I had a question. Loved the quick response!",
+    img: "https://avatar.vercel.sh/ava",
+  },
+  {
+    name: "Noah Kim",
+    username: "@noahk",
+    body: "Superb packaging and fast delivery. The product feels premium. Will buy again soon.",
+    img: "https://avatar.vercel.sh/noah",
+  },
+  {
+    name: "Isabella Martinez",
+    username: "@isabellam",
+    body: "Very satisfied with the quality and design. It fits perfectly and looks exactly like the pictures.",
+    img: "https://avatar.vercel.sh/isabella",
+  },
+  {
+    name: "Ethan Walker",
+    username: "@ethanw",
+    body: "Great value for the price. Everything was smooth from ordering to delivery.",
+    img: "https://avatar.vercel.sh/ethan",
+  },
+  {
     name: "Sophia Reynolds",
     username: "@sophia",
     body: "Absolutely love the product quality and the fast shipping! Will definitely be back for more.",
@@ -65,7 +95,6 @@ const ReviewCard = ({
       )}
     >
       <div className="flex flex-row items-center gap-2">
-       
         <Image
           src={img}
           alt="User avatar"

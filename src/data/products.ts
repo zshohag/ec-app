@@ -76,28 +76,31 @@ export const products: Product[] = [
     inStock: true,
     badge: "Top Rated",
   },
+
   {
-    id: "4",
-    name: "Face Moisturizer",
-    price: 24.75,
+    id: "55",
+    name: "Hydrating Facial Moisturizer",
+    price: 24.99,
     images: [
-      "/placeholder.svg?height=400&width=400&text=Embroidery+Hoops",
-      "/placeholder.svg?height=400&width=400&text=Embroidery+Hoops+2",
+      "https://i.ibb.co/xyz1/moisturizer1.jpg",
+      "https://i.ibb.co/xyz2/moisturizer2.jpg",
+      "https://i.ibb.co/xyz3/moisturizer3.jpg",
     ],
     category: "health-beauty",
-    quantity: 30,
-    description: "Lightweight daily face moisturizer with SPF.",
+    quantity: 120,
+    description:
+      "Lightweight, non-greasy facial moisturizer with hyaluronic acid for all-day hydration.",
     features: [
-      "SPF 30",
+      "Hyaluronic acid formula",
       "Non-comedogenic",
-      "Hydrating",
-      "Quick absorption",
-      "Fragrance-free",
+      "Paraben-free",
+      "Suitable for all skin types",
+      "Quick-absorbing",
     ],
-    rating: 4.6,
-    reviews: 425,
-    inStock: false,
-    badge: "Customer Favorite",
+    rating: 4.7,
+    reviews: 215,
+    inStock: true,
+    badge: "Coming Soon",
   },
   {
     id: "5",
@@ -193,6 +196,30 @@ export const products: Product[] = [
     reviews: 240,
     inStock: true,
     badge: "Best Seller",
+  },
+
+  {
+    id: "4",
+    name: "Face Moisturizer",
+    price: 24.75,
+    images: [
+      "/placeholder.svg?height=400&width=400&text=Embroidery+Hoops",
+      "/placeholder.svg?height=400&width=400&text=Embroidery+Hoops+2",
+    ],
+    category: "health-beauty",
+    quantity: 30,
+    description: "Lightweight daily face moisturizer with SPF.",
+    features: [
+      "SPF 30",
+      "Non-comedogenic",
+      "Hydrating",
+      "Quick absorption",
+      "Fragrance-free",
+    ],
+    rating: 4.6,
+    reviews: 425,
+    inStock: false,
+    badge: "Customer Favorite",
   },
   {
     id: "9",
@@ -338,6 +365,31 @@ export const products: Product[] = [
     reviews: 215,
     inStock: true,
     badge: "Customer Favorite",
+  },
+  {
+    id: "56",
+    name: "Adjustable Baby Bottle Warmer",
+    price: 39.99,
+    images: [
+      "https://i.ibb.co/abc1/bottlewarmer1.jpg",
+      "https://i.ibb.co/abc2/bottlewarmer2.jpg",
+      "https://i.ibb.co/abc3/bottlewarmer3.jpg",
+    ],
+    category: "baby",
+    quantity: 85,
+    description:
+      "Portable bottle warmer with precise temperature control for safe feeding.",
+    features: [
+      "Digital temperature display",
+      "Fast heating",
+      "Fits most bottle sizes",
+      "Auto shut-off",
+      "Portable design",
+    ],
+    rating: 4.9,
+    reviews: 340,
+    inStock: true,
+    badge: "Coming Soon",
   },
   {
     id: "15",
@@ -676,7 +728,7 @@ export const products: Product[] = [
   },
   {
     id: "29",
-    name: "Quinoa Grain 1kg",
+    name: "Quinoa Grain",
     price: 8.99,
     images: [
       "https://i.ibb.co/JFH2X5qP/Quinoa-Grain1.jpg",
@@ -725,7 +777,7 @@ export const products: Product[] = [
   },
   {
     id: "31",
-    name: "Himalayan Pink Salt 1kg",
+    name: "Himalayan Pink Salt",
     price: 9.99,
     images: [
       "https://i.ibb.co/BVq2LJKS/Himalayan-Pink-Salt1.jpg",
@@ -749,7 +801,7 @@ export const products: Product[] = [
   },
   {
     id: "32",
-    name: "Organic Green Tea 100 bags",
+    name: "Organic Green Tea",
     price: 14.99,
     images: [],
     category: "grocery",
@@ -793,7 +845,7 @@ export const products: Product[] = [
   },
   {
     id: "34",
-    name: "Coconut Oil 500ml",
+    name: "Coconut Oil",
     price: 13.99,
     images: [
       "https://i.ibb.co/5hZJzrnW/Coconut-Oil1.jpg",
@@ -961,6 +1013,31 @@ export const products: Product[] = [
     badge: "Creative Tools",
   },
   {
+    id: "59",
+    name: "Watercolor Paint Set",
+    price: 19.95,
+    images: [
+      "https://i.ibb.co/jkl1/paintset1.jpg",
+      "https://i.ibb.co/jkl2/paintset2.jpg",
+      "https://i.ibb.co/jkl3/paintset3.jpg",
+    ],
+    category: "art-craft",
+    quantity: 90,
+    description:
+      "Vibrant watercolor paint set for beginners and professionals alike.",
+    features: [
+      "24 vivid colors",
+      "Non-toxic",
+      "Portable tin case",
+      "High pigment quality",
+      "Includes brush",
+    ],
+    rating: 4.7,
+    reviews: 260,
+    inStock: true,
+    badge: "Coming Soon",
+  },
+  {
     id: "41",
     name: "Polymer Clay Starter Kit",
     price: 22.99,
@@ -1106,6 +1183,31 @@ export const products: Product[] = [
     reviews: 80,
     inStock: true,
     badge: "Eco-Friendly",
+  },
+  {
+    id: "58",
+    name: "Organic Quinoa",
+    price: 12.49,
+    images: [
+      "https://i.ibb.co/ghi1/quinoa1.jpg",
+      "https://i.ibb.co/ghi2/quinoa2.jpg",
+      "https://i.ibb.co/ghi3/quinoa3.jpg",
+    ],
+    category: "grocery",
+    quantity: 200,
+    description:
+      "Premium organic quinoa, perfect for salads, bowls, and side dishes.",
+    features: [
+      "USDA organic certified",
+      "Non-GMO",
+      "Gluten-free",
+      "High in protein",
+      "Resealable bag",
+    ],
+    rating: 4.8,
+    reviews: 150,
+    inStock: true,
+    badge: "Coming Soon",
   },
 
   {
@@ -1309,56 +1411,6 @@ export const products: Product[] = [
   },
 
   {
-    id: "55",
-    name: "Hydrating Facial Moisturizer",
-    price: 24.99,
-    images: [
-      "https://i.ibb.co/xyz1/moisturizer1.jpg",
-      "https://i.ibb.co/xyz2/moisturizer2.jpg",
-      "https://i.ibb.co/xyz3/moisturizer3.jpg",
-    ],
-    category: "health-beauty",
-    quantity: 120,
-    description:
-      "Lightweight, non-greasy facial moisturizer with hyaluronic acid for all-day hydration.",
-    features: [
-      "Hyaluronic acid formula",
-      "Non-comedogenic",
-      "Paraben-free",
-      "Suitable for all skin types",
-      "Quick-absorbing",
-    ],
-    rating: 4.7,
-    reviews: 215,
-    inStock: true,
-    badge: "Upcoming",
-  },
-  {
-    id: "56",
-    name: "Adjustable Baby Bottle Warmer",
-    price: 39.99,
-    images: [
-      "https://i.ibb.co/abc1/bottlewarmer1.jpg",
-      "https://i.ibb.co/abc2/bottlewarmer2.jpg",
-      "https://i.ibb.co/abc3/bottlewarmer3.jpg",
-    ],
-    category: "baby",
-    quantity: 85,
-    description:
-      "Portable bottle warmer with precise temperature control for safe feeding.",
-    features: [
-      "Digital temperature display",
-      "Fast heating",
-      "Fits most bottle sizes",
-      "Auto shut-off",
-      "Portable design",
-    ],
-    rating: 4.9,
-    reviews: 340,
-    inStock: true,
-    badge: "Upcoming",
-  },
-  {
     id: "57",
     name: "Smart Air Fryer",
     price: 89.99,
@@ -1381,58 +1433,9 @@ export const products: Product[] = [
     rating: 4.6,
     reviews: 180,
     inStock: true,
-    badge: "Upcoming",
+    badge: "Coming Soon",
   },
-  {
-    id: "58",
-    name: "Organic Quinoa",
-    price: 12.49,
-    images: [
-      "https://i.ibb.co/ghi1/quinoa1.jpg",
-      "https://i.ibb.co/ghi2/quinoa2.jpg",
-      "https://i.ibb.co/ghi3/quinoa3.jpg",
-    ],
-    category: "grocery",
-    quantity: 200,
-    description:
-      "Premium organic quinoa, perfect for salads, bowls, and side dishes.",
-    features: [
-      "USDA organic certified",
-      "Non-GMO",
-      "Gluten-free",
-      "High in protein",
-      "Resealable bag",
-    ],
-    rating: 4.8,
-    reviews: 150,
-    inStock: true,
-    badge: "Upcoming",
-  },
-  {
-    id: "59",
-    name: "Watercolor Paint Set",
-    price: 19.95,
-    images: [
-      "https://i.ibb.co/jkl1/paintset1.jpg",
-      "https://i.ibb.co/jkl2/paintset2.jpg",
-      "https://i.ibb.co/jkl3/paintset3.jpg",
-    ],
-    category: "art-craft",
-    quantity: 90,
-    description:
-      "Vibrant watercolor paint set for beginners and professionals alike.",
-    features: [
-      "24 vivid colors",
-      "Non-toxic",
-      "Portable tin case",
-      "High pigment quality",
-      "Includes brush",
-    ],
-    rating: 4.7,
-    reviews: 260,
-    inStock: true,
-    badge: "Upcoming",
-  },
+
   {
     id: "60",
     name: "Cordless Electric Lawn Trimmer",
@@ -1456,7 +1459,7 @@ export const products: Product[] = [
     rating: 4.5,
     reviews: 200,
     inStock: true,
-    badge: "Upcoming",
+    badge: "Coming Soon",
   },
 ];
 
@@ -1494,7 +1497,7 @@ export const categories: Category[] = [
   },
   {
     id: "lawn-garden",
-    name: "Lawn & Garden",
+    name: "Patio, Lawn & Garden",
     icon: Fence,
     count: products.filter((p) => p.category === "lawn-garden").length,
   },
