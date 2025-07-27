@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 // import { Facebook,  Instagram  } from "lucide-react";
 // import { Button } from "@/components/ui/button";
@@ -10,9 +11,23 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
         {/* Logo + About */}
         <div>
-          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-            Moshiur Tamim LLC
-          </h2>
+          <div className="flex items-center gap-4 mb-2 ">
+                      <Link href="/" className="flex items-center gap-2">
+                        {/* Logo Image */}
+                        <Image
+                          src="/images/bglogo.png"
+                          alt="Logo"
+                          width={40}
+                          height={40}
+                          className="rounded"
+                        />
+          
+                        {/* Title and Badge */}
+                        <span className="text-xl font-bold text-gray-900">
+                          Moshiur Tamim LLC
+                        </span>
+                      </Link>
+                    </div>
           <p className="text-sm">
             Your one-stop destination for the latest tech, gadgets, and premium
             products.

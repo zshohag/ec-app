@@ -156,6 +156,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { User, LogOut, Package, LayoutDashboard } from "lucide-react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import Image from "next/image";
 
 export function Navbar() {
   const { data: session, status } = useSession();
@@ -169,8 +170,29 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
+          {/* <div className="flex items-center gap-4">
+            <Link href="/" className="flex items-center gap-2">
+              <h1 className="text-2xl font-bold text-gray-900">
+                Moshiur Tamim LLC
+              </h1>
+              <Badge variant="secondary" className="hidden sm:inline-flex">
+                Store
+              </Badge>
+            </Link>
+          </div> */}
+
           <div className="flex items-center gap-4">
             <Link href="/" className="flex items-center gap-2">
+              {/* Logo Image */}
+              <Image
+                src="/images/bglogo.png"
+                alt="Logo"
+                width={50}
+                height={50}
+                className="rounded"
+              />
+
+              {/* Title and Badge */}
               <h1 className="text-2xl font-bold text-gray-900">
                 Moshiur Tamim LLC
               </h1>
