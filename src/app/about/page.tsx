@@ -1,106 +1,3 @@
-// "use client";
-
-// import { Button } from "@/components/ui/button";
-// import { Truck, Tag, Sparkles, Star } from "lucide-react";
-
-// export default function AboutPage() {
-//   return (
-//     <div className="bg-white">
-//       {/* Hero Section */}
-//       <section className="py-16 px-4 text-center">
-//         <div className="max-w-3xl mx-auto">
-//           <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
-//             🛍️ Welcome to Moshiur Tamim LLC Store
-//           </h1>
-//           <p className="text-lg text-gray-700 mb-6">
-//             Discover top-quality items across Health & Beauty, Baby Products, Home & Kitchen, Grocery,
-//             Chocolate & Candy, Art & Craft, and Lawn & Garden — all in one place.
-//           </p>
-//           <div className="inline-block bg-red-500 text-white font-semibold px-6 py-3 rounded-full shadow-lg">
-//             🎉 Summer Sale 50% OFF — Until Sunday!
-//           </div>
-//           <div className="mt-6">
-//             <Button size="lg" className="text-lg px-6 py-4">
-//               Shop Now
-//             </Button>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Features Section */}
-//       <section className="py-16 px-4 max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-//         <div className="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition">
-//           <Truck className="w-10 h-10 mx-auto text-blue-500 mb-4" />
-//           <h3 className="text-xl font-semibold mb-2">Free Shipping</h3>
-//           <p className="text-gray-600 text-sm">
-//             On orders over $100 — Today only!
-//           </p>
-//           <Button variant="link" className="mt-4 text-blue-600">
-//             Order Now →
-//           </Button>
-//         </div>
-
-//         <div className="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition">
-//           <Tag className="w-10 h-10 mx-auto text-red-500 mb-4" />
-//           <h3 className="text-xl font-semibold mb-2">Big Discounts</h3>
-//           <p className="text-gray-600 text-sm">
-//             Save up to 50% on Health & Beauty, Baby Products, and more.
-//           </p>
-//           <Button variant="link" className="mt-4 text-red-600">
-//             Shop Deals →
-//           </Button>
-//         </div>
-
-//         <div className="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition">
-//           <Sparkles className="w-10 h-10 mx-auto text-green-500 mb-4" />
-//           <h3 className="text-xl font-semibold mb-2">New Arrivals</h3>
-//           <p className="text-gray-600 text-sm">
-//             Fresh stock in Grocery, Lawn & Garden, and Art & Craft.
-//           </p>
-//           <Button variant="link" className="mt-4 text-green-600">
-//             Explore →
-//           </Button>
-//         </div>
-
-//         <div className="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition">
-//           <Star className="w-10 h-10 mx-auto text-yellow-500 mb-4" />
-//           <h3 className="text-xl font-semibold mb-2">Premium Collection</h3>
-//           <p className="text-gray-600 text-sm">
-//             Handpicked luxury items across all categories — just for you.
-//           </p>
-//           <Button variant="link" className="mt-4 text-yellow-600">
-//             View Collection →
-//           </Button>
-//         </div>
-//       </section>
-
-//       {/* About Us Text */}
-//       <section className="py-16 px-4 bg-gray-100">
-//         <div className="max-w-4xl mx-auto text-center">
-//           <h2 className="text-3xl font-bold mb-4">Why Choose Moshiur Tamim LLC Store?</h2>
-//           <p className="text-gray-700 text-lg leading-relaxed">
-//             At Moshiur Tamim LLC Store, we bring you a carefully curated range of Health & Beauty essentials, Baby Products,
-//             kitchenware, snacks, crafts, and gardening tools. With fast delivery, great prices, and excellent customer service,
-//             shopping has never been more satisfying.
-//           </p>
-//         </div>
-//       </section>
-
-//       {/* Footer CTA */}
-//       <section className="py-12 px-4 bg-white text-center">
-//         <div className="max-w-2xl mx-auto">
-//           <h3 className="text-2xl font-semibold mb-3">
-//             Ready to explore the best products across all your favorite categories?
-//           </h3>
-//           <Button size="lg" className="text-lg px-8 py-4">
-//             Start Shopping
-//           </Button>
-//         </div>
-//       </section>
-//     </div>
-//   );
-// }
-
 ///update
 
 "use client";
@@ -116,7 +13,6 @@ import {
   Baby,
   Home,
   ShoppingCart,
-  Candy,
   Palette,
   Flower2,
 } from "lucide-react";
@@ -171,10 +67,10 @@ export default function AboutPage() {
               <ShoppingCart className="w-8 h-8 mx-auto text-orange-500 mb-3" />
               <h3 className="font-semibold text-sm">Grocery & Gourmet Food</h3>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 text-center">
+            {/* <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 text-center">
               <Candy className="w-8 h-8 mx-auto text-red-500 mb-3" />
               <h3 className="font-semibold text-sm">Chocolate & Candy</h3>
-            </div>
+            </div> */}
             <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 text-center">
               <Palette className="w-8 h-8 mx-auto text-purple-500 mb-3" />
               <h3 className="font-semibold text-sm">Art & Craft</h3>
