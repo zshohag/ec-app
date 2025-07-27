@@ -78,7 +78,7 @@ export default function RegisterPage() {
     <div className="flex items-center justify-center min-h-screen bg-slate-50 px-4">
       <div className="bg-white shadow-md rounded-xl p-8 max-w-md w-full border">
         <h1 className="text-2xl font-bold mb-6 text-center">
-          Create your ShopHub account
+          Create your  account
         </h1>
 
         <Form {...form}>

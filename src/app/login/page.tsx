@@ -86,7 +86,7 @@ export default function SignInPage() {
     <div className="flex items-center justify-center min-h-screen bg-slate-50 px-4">
       <div className="bg-white shadow-md rounded-xl p-8 max-w-md w-full border">
         <h2 className="text-2xl font-bold mb-6 text-center">
-          Sign in to ShopHub
+          Sign in to your account
         </h2>
 
         <Form {...form}>
