@@ -154,7 +154,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { User, LogOut, Package, LayoutDashboard } from "lucide-react";
+import { User, LogOut, LayoutDashboard } from "lucide-react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Image from "next/image";
 
@@ -272,22 +272,22 @@ export function Navbar() {
                   ) : (
                     <>
                       <DropdownMenuItem asChild>
-                        <Link
+                        {/* <Link
                           href="/dashboard/user"
                           className="flex items-center"
                         >
                           <User className="mr-2 h-4 w-4" />
                           Dashboard
-                        </Link>
+                        </Link> */}
                       </DropdownMenuItem>
                       <DropdownMenuItem asChild>
-                        <Link
+                        {/* <Link
                           href="/dashboard/user/manage-orders"
                           className="flex items-center"
                         >
                           <Package className="mr-2 h-4 w-4" />
                           My Orders
-                        </Link>
+                        </Link> */}
                       </DropdownMenuItem>
                     </>
                   )}
