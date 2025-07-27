@@ -10,9 +10,5 @@ http://localhost:3000
 
 
 git add .
-
 git commit -m "first commit"
 git push -u origin main
-
-
- "src/app/api/create-payment-intent"

@@ -126,7 +126,7 @@ export function MarqueeSlider() {
         </p>
       </div>
 
-      <Marquee pauseOnHover className="[--duration:20s]">
+      <Marquee pauseOnHover className="[--duration:30s]">
         {firstRow.map((review) => (
           <ReviewCard key={review.username} {...review} />
         ))}

@@ -1,354 +1,3 @@
-// app/register/page.tsx
-
-
-// "use client";
-
-// import { useForm } from "react-hook-form";
-// import { z } from "zod";
-// import { zodResolver } from "@hookform/resolvers/zod";
-// import { Button } from "@/components/ui/button";
-// import { Input } from "@/components/ui/input";
-// import {
-//   Form,
-//   FormField,
-//   FormItem,
-//   FormLabel,
-//   FormMessage,
-//   FormControl,
-// } from "@/components/ui/form";
-// import { useRouter } from "next/navigation";
-// import { toast } from "sonner";
-// import { useState } from "react";
-// import { signIn } from "next-auth/react";
-// import { FcGoogle } from "react-icons/fc";
-
-// const formSchema = z.object({
-//   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
-//   email: z.string().email({ message: "Invalid email address" }),
-//   password: z
-//     .string()
-//     .min(6, { message: "Password must be at least 6 characters" }),
-// });
-
-// type RegisterFormData = z.infer<typeof formSchema>;
-
-// export default function RegisterPage() {
-//   const form = useForm<RegisterFormData>({
-//     resolver: zodResolver(formSchema),
-//     defaultValues: { name: "", email: "", password: "" },
-//   });
-//   const router = useRouter();
-//   const [loading, setLoading] = useState(false);
-//   const [googleLoading, setGoogleLoading] = useState(false);
-
-//   const onSubmit = async (data: RegisterFormData) => {
-//     setLoading(true);
-//     try {
-//       const res = await fetch("/api/register", {
-//         method: "POST",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify(data),
-//       });
-
-//       const result = await res.json();
-
-//       if (res.ok) {
-//         toast.success("Registration successful! Please sign in.");
-//         router.push("/login");
-//       } else {
-//         toast.error(result.message || "Registration failed");
-//       }
-//     } catch (error) {
-//       console.log(error);
-//       toast.error("Something went wrong. Please try again.");
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   const handleGoogleRegister = async () => {
-//     setGoogleLoading(true);
-//     try {
-//       await signIn("google", { callbackUrl: "/dashboard" });
-//     } catch (error) {
-//       console.log(error);
-//       toast.error("Google registration failed");
-//       setGoogleLoading(false);
-//     }
-//   };
-
-//   return (
-//     <div className="flex items-center justify-center min-h-screen bg-slate-50 px-4">
-//       <div className="bg-white shadow-md rounded-xl p-8 max-w-md w-full border">
-//         <h1 className="text-2xl font-bold mb-6 text-center">
-//           Create your ShopHub account
-//         </h1>
-
-//         <Form {...form}>
-//           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-//             <FormField
-//               control={form.control}
-//               name="name"
-//               render={({ field }) => (
-//                 <FormItem>
-//                   <FormLabel>Full Name</FormLabel>
-//                   <FormControl>
-//                     <Input placeholder="John Doe" {...field} />
-//                   </FormControl>
-//                   <FormMessage />
-//                 </FormItem>
-//               )}
-//             />
-//             <FormField
-//               control={form.control}
-//               name="email"
-//               render={({ field }) => (
-//                 <FormItem>
-//                   <FormLabel>Email address</FormLabel>
-//                   <FormControl>
-//                     <Input
-//                       placeholder="you@example.com"
-//                       type="email"
-//                       {...field}
-//                     />
-//                   </FormControl>
-//                   <FormMessage />
-//                 </FormItem>
-//               )}
-//             />
-//             <FormField
-//               control={form.control}
-//               name="password"
-//               render={({ field }) => (
-//                 <FormItem>
-//                   <FormLabel>Password</FormLabel>
-//                   <FormControl>
-//                     <Input placeholder="••••••••" type="password" {...field} />
-//                   </FormControl>
-//                   <FormMessage />
-//                 </FormItem>
-//               )}
-//             />
-//             <Button type="submit" className="w-full" disabled={loading}>
-//               {loading ? "Creating Account..." : "Create Account"}
-//             </Button>
-//           </form>
-//         </Form>
-
-//         <div className="my-4 text-center text-gray-500 text-sm">OR</div>
-
-//         <Button
-//           onClick={handleGoogleRegister}
-//           variant="outline"
-//           className="w-full flex items-center justify-center gap-2"
-//           disabled={googleLoading}
-//         >
-//           <FcGoogle className="w-5 h-5" />
-//           {googleLoading ? "Connecting..." : "Continue with Google"}
-//         </Button>
-
-//         <p className="text-sm text-center mt-6">
-//           Already have an account?{" "}
-//           <a
-//             href="/signin"
-//             className="text-blue-600 hover:underline font-medium"
-//           >
-//             Sign in
-//           </a>
-//         </p>
-//       </div>
-//     </div>
-//   );
-// }
-
-
-///  OKAY BUT NOT 
-
-// "use client";
-
-// import { useForm } from "react-hook-form";
-// import { z } from "zod";
-// import { zodResolver } from "@hookform/resolvers/zod";
-// import { Button } from "@/components/ui/button";
-// import { Input } from "@/components/ui/input";
-// import {
-//   Form,
-//   FormField,
-//   FormItem,
-//   FormLabel,
-//   FormMessage,
-//   FormControl,
-// } from "@/components/ui/form";
-// import { useRouter } from "next/navigation";
-// import { useState } from "react";
-// import { signIn } from "next-auth/react";
-// import { FcGoogle } from "react-icons/fc";
-
-
-// const formSchema = z.object({
-//   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
-//   email: z.string().email({ message: "Invalid email address" }),
-//   password: z
-//     .string()
-//     .min(6, { message: "Password must be at least 6 characters" }),
-// });
-
-// type RegisterFormData = z.infer<typeof formSchema>;
-
-// export default function RegisterPage() {
-//   const form = useForm<RegisterFormData>({
-//     resolver: zodResolver(formSchema),
-//     defaultValues: { name: "", email: "", password: "" },
-//   });
-//   const router = useRouter();
-//   const [loading, setLoading] = useState(false);
-//   const [googleLoading, setGoogleLoading] = useState(false);
-
-//   // Initialize the toast function from useToast hook
- 
-
-//   const onSubmit = async (data: RegisterFormData) => {
-//     setLoading(true);
-//     try {
-//       const res = await fetch("/api/register", {
-//         method: "POST",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify(data),
-//       });
-
-//       const result = await res.json();
-
-//       if (res.ok) {
-//         // Use shadcn/ui toast
-//         toast({
-//           title: "Registration successful!",
-//           description: "Please sign in.",
-//           duration: 3000, // Optional: toast disappears after 3 seconds
-//         });
-//         router.push("/login");
-//       } else {
-//         // Use shadcn/ui toast for errors
-//         toast({
-//           title: "Registration Failed",
-//           description: result.message || "An unexpected error occurred.",
-//           variant: "destructive", // Use the 'destructive' variant for errors
-//         });
-//       }
-//     } catch (error) {
-//       console.error(error); // Use console.error for errors
-//       // Use shadcn/ui toast for network/unexpected errors
-//       toast({
-//         title: "Error",
-//         description: "Something went wrong. Please try again.",
-//         variant: "destructive",
-//       });
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   const handleGoogleRegister = async () => {
-//     setGoogleLoading(true);
-//     try {
-//       await signIn("google", { callbackUrl: "/dashboard" });
-//     } catch (error) {
-//       console.error(error); // Use console.error for errors
-//       // Use shadcn/ui toast for Google registration errors
-//       toast({
-//         title: "Google Registration Failed",
-//         description: "Could not complete Google sign-in. Please try again.",
-//         variant: "destructive",
-//       });
-//       setGoogleLoading(false);
-//     }
-//   };
-
-//   return (
-//     <div className="flex items-center justify-center min-h-screen bg-slate-50 px-4">
-//       <div className="bg-white shadow-md rounded-xl p-8 max-w-md w-full border">
-//         <h1 className="text-2xl font-bold mb-6 text-center">
-//           Create your ShopHub account
-//         </h1>
-
-//         <Form {...form}>
-//           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-//             <FormField
-//               control={form.control}
-//               name="name"
-//               render={({ field }) => (
-//                 <FormItem>
-//                   <FormLabel>Full Name</FormLabel>
-//                   <FormControl>
-//                     <Input placeholder="John Doe" {...field} />
-//                   </FormControl>
-//                   <FormMessage />
-//                 </FormItem>
-//               )}
-//             />
-//             <FormField
-//               control={form.control}
-//               name="email"
-//               render={({ field }) => (
-//                 <FormItem>
-//                   <FormLabel>Email address</FormLabel>
-//                   <FormControl>
-//                     <Input
-//                       placeholder="you@example.com"
-//                       type="email"
-//                       {...field}
-//                     />
-//                   </FormControl>
-//                   <FormMessage />
-//                 </FormItem>
-//               )}
-//             />
-//             <FormField
-//               control={form.control}
-//               name="password"
-//               render={({ field }) => (
-//                 <FormItem>
-//                   <FormLabel>Password</FormLabel>
-//                   <FormControl>
-//                     <Input placeholder="••••••••" type="password" {...field} />
-//                   </FormControl>
-//                   <FormMessage />
-//                 </FormItem>
-//               )}
-//             />
-//             <Button type="submit" className="w-full" disabled={loading}>
-//               {loading ? "Creating Account..." : "Create Account"}
-//             </Button>
-//           </form>
-//         </Form>
-
-//         <div className="my-4 text-center text-gray-500 text-sm">OR</div>
-
-//         <Button
-//           onClick={handleGoogleRegister}
-//           variant="outline"
-//           className="w-full flex items-center justify-center gap-2"
-//           disabled={googleLoading}
-//         >
-//           <FcGoogle className="w-5 h-5" />
-//           {googleLoading ? "Connecting..." : "Continue with Google"}
-//         </Button>
-
-//         <p className="text-sm text-center mt-6">
-//           Already have an account?{" "}
-//           <a
-//             href="/signin"
-//             className="text-blue-600 hover:underline font-medium"
-//           >
-//             Sign in
-//           </a>
-//         </p>
-//       </div>
-//     </div>
-//   );
-// }
-
-///////////
-
 "use client";
 
 import { useForm } from "react-hook-form";
@@ -368,12 +17,13 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
-import toast from "react-hot-toast"; // ✅ Import react-hot-toast
-
+import toast from "react-hot-toast";
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
   email: z.string().email({ message: "Invalid email address" }),
-  password: z.string().min(6, { message: "Password must be at least 6 characters" }),
+  password: z
+    .string()
+    .min(6, { message: "Password must be at least 6 characters" }),
 });
 
 type RegisterFormData = z.infer<typeof formSchema>;
@@ -453,7 +103,11 @@ export default function RegisterPage() {
                 <FormItem>
                   <FormLabel>Email address</FormLabel>
                   <FormControl>
-                    <Input placeholder="you@example.com" type="email" {...field} />
+                    <Input
+                      placeholder="you@example.com"
+                      type="email"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -492,7 +146,10 @@ export default function RegisterPage() {
 
         <p className="text-sm text-center mt-6">
           Already have an account?{" "}
-          <a href="/signin" className="text-blue-600 hover:underline font-medium">
+          <a
+            href="/login"
+            className="text-blue-600 hover:underline font-medium"
+          >
             Sign in
           </a>
         </p>

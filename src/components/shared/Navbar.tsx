@@ -292,7 +292,7 @@ export function Navbar() {
                     </>
                   )}
 
-                  <DropdownMenuSeparator />
+                  {/* <DropdownMenuSeparator /> */}
                   <DropdownMenuItem
                     className="cursor-pointer"
                     onClick={() => signOut({ callbackUrl: "/" })}

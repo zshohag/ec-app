@@ -22,6 +22,7 @@ import {
   Palette,
   Flower,
 } from "lucide-react";
+import Link from "next/link";
 
 const slides = [
   {
@@ -298,12 +299,21 @@ export default function HomeSlider() {
             <p className="text-gray-600 mb-4 text-sm leading-relaxed">
               {slide.subtext}
             </p>
-            <Button
+            {/* <Button
               variant="outline"
               className="w-full hover:bg-gray-800 hover:text-white transition-colors bg-transparent group-hover:border-gray-800"
             >
               {slide.cta}
-            </Button>
+            </Button> */}
+
+            <Link href="/products" passHref>
+              <Button
+                variant="outline"
+                className="w-full hover:bg-gray-800 hover:text-white transition-colors bg-transparent group-hover:border-gray-800"
+              >
+                {slide.cta}
+              </Button>
+            </Link>
           </motion.div>
         ))}
       </div>
@@ -332,12 +342,14 @@ export default function HomeSlider() {
             <p className="text-gray-600 mb-4 text-sm leading-relaxed">
               {slide.subtext}
             </p>
-            <Button
-              variant="outline"
-              className="w-full hover:bg-gray-800 hover:text-white transition-colors bg-transparent group-hover:border-gray-800"
-            >
-              {slide.cta}
-            </Button>
+            <Link href="/products" passHref>
+              <Button
+                variant="outline"
+                className="w-full hover:bg-gray-800 hover:text-white transition-colors bg-transparent group-hover:border-gray-800"
+              >
+                {slide.cta}
+              </Button>
+            </Link>
           </motion.div>
         ))}
       </div>
