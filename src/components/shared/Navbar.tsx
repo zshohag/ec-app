@@ -169,30 +169,29 @@ export function Navbar() {
     <header className="bg-white shadow-sm border-b sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          {/* <div className="flex items-center gap-4">
-            <Link href="/" className="flex items-center gap-2">
-              <h1 className="text-2xl font-bold text-gray-900">
-                Moshiur Tamim LLC
-              </h1>
-              <Badge variant="secondary" className="hidden sm:inline-flex">
-                Store
-              </Badge>
-            </Link>
-          </div> */}
-
           <div className="flex items-center gap-4">
             <Link href="/" className="flex items-center gap-2">
-              {/* Logo Image */}
-              <Image
-                src="/images/bglogo.png"
-                alt="Logo"
-                width={50}
-                height={50}
-                className="rounded"
-              />
+              {/* <div>
+                <Image
+                  src="/images/bglogo.png"
+                  alt="Logo"
+                  width={50}
+                  height={50}
+                  className="rounded"
+                />
+              </div> */}
 
-              {/* Title and Badge */}
+              <div className="w-16 h-16 relative">
+                <Image
+                  src="/images/bglogo.png"
+                  alt="Logo"
+                  fill
+                  className="object-contain rounded"
+                  sizes="64px"
+                  priority
+                />
+              </div>
+
               <h1 className="text-2xl font-bold text-gray-900">
                 Moshiur Tamim LLC
               </h1>
@@ -201,6 +200,32 @@ export function Navbar() {
               </Badge>
             </Link>
           </div>
+
+          {/* <div className="flex justify-center items-center ">
+            <Link href="/" className="flex items-center gap-3">
+              
+              <div className="w-16 h-16 relative">
+                <Image
+                  src="/images/bglogo.png"
+                  alt="Logo"
+                  fill
+                  className="object-contain rounded"
+                  sizes="64px"
+                  priority
+                />
+              </div>
+
+        
+              <span className="flex items-center gap-2">
+                <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
+                  M S WE shop
+                </h1>
+                <Badge variant="secondary" className="text-sm px-2 py-1">
+                  Store
+                </Badge>
+              </span>
+            </Link>
+          </div> */}
 
           {/* Navigation (Desktop) */}
           <nav className="hidden md:flex items-center gap-6">

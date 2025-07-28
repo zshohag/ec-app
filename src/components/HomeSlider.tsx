@@ -13,14 +13,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
-import {
-  Heart,
-  Baby,
-  Home,
-  ShoppingCart,
-  Palette,
-  Flower,
-} from "lucide-react";
+import { Heart, Baby, Home, ShoppingCart, Palette, Flower } from "lucide-react";
 import Link from "next/link";
 
 const slides = [
@@ -87,7 +80,7 @@ const slides = [
   {
     src: "/coverImage/plant.jpg",
     alt: "Lawn & Garden Banner",
-    headline: "Lawn & Garden",
+    headline: "Patio, Lawn & Garden",
     subtext: "Beautiful gardens start with quality tools & plants",
     cta: "Shop Garden",
     gradientImage: "from-green-500/40 via-lime-500/30 to-emerald-600/40",
@@ -318,7 +311,7 @@ export default function HomeSlider() {
       </div>
 
       {/* Additional Category Cards */}
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
         {slides.slice(4).map((slide, index) => (
           <motion.div
             key={index + 4}

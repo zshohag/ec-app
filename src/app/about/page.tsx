@@ -77,7 +77,7 @@ export default function AboutPage() {
             </div>
             <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 text-center">
               <Flower2 className="w-8 h-8 mx-auto text-emerald-500 mb-3" />
-              <h3 className="font-semibold text-sm">Lawn & Garden</h3>
+              <h3 className="font-semibold text-sm">Patio, Lawn & Garden</h3>
             </div>
           </div>
         </div>
