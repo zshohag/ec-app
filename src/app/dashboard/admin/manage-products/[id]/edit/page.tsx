@@ -310,7 +310,7 @@
 
 "use client";
 
-import { useEffect, useState } from "react"; // Import useState
+import { useEffect, useState } from "react"; 
 import { useRouter, useParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -487,10 +487,10 @@ export default function EditProductPage() {
   }
 
   return (
-    <div className="p-6 max-w-2xl mx-auto">
+    <div className="p-3 max-w-4xl">
       <Button
         variant="link"
-        onClick={() => router.push("/dashboard/admin/manage-products")} // Corrected path
+        onClick={() => router.push("/dashboard/admin/manage-products")} 
         className="mb-4"
       >
         ← Back to Manage Products
@@ -499,7 +499,7 @@ export default function EditProductPage() {
       <h1 className="text-2xl font-bold mb-2">Edit Product</h1>
       <p className="text-gray-600 mb-6">Update product information</p>
 
-      <Form {...form}>
+      <Form {...form} >
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField
             control={form.control}

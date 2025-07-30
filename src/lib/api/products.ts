@@ -61,23 +61,58 @@ export const useCreateProduct = () => {
 
 
 // Hook to update an existing product
+// export const useUpdateProduct = () => {
+//   const queryClient = useQueryClient()
+
+//   return useMutation({
+//     mutationFn: async ({ id, ...product }: Product) => {
+//       const response = await fetch(`/api/products/${id}`, {
+//         method: "PUT",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify(product),
+//       })
+//       if (!response.ok) throw new Error("Failed to update product")
+//       return response.json()
+//     },
+//     onSuccess: (data) => {
+//       queryClient.invalidateQueries({ queryKey: ["products"] })
+//       queryClient.invalidateQueries({ queryKey: ["product", data.id] })
+//     },
+//   })
+// }
+
+// Updated useUpdateProduct hook with better error handling
 export const useUpdateProduct = () => {
   const queryClient = useQueryClient()
 
   return useMutation({
-    mutationFn: async ({ id, ...product }: Product) => {
-      const response = await fetch(`/api/products/${id}`, {
+    mutationFn: async (product: Product) => {
+      console.log("Updating product:", product); // Debug log
+      
+      const response = await fetch(`/api/products/${product.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(product),
       })
-      if (!response.ok) throw new Error("Failed to update product")
-      return response.json()
+      
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        console.error("Update failed:", response.status, errorData);
+        throw new Error(`Failed to update product: ${response.status} ${response.statusText}`);
+      }
+      
+      const result = await response.json();
+      console.log("Update successful:", result); // Debug log
+      return result;
     },
     onSuccess: (data) => {
+      console.log("Mutation success, invalidating queries for:", data.id);
       queryClient.invalidateQueries({ queryKey: ["products"] })
       queryClient.invalidateQueries({ queryKey: ["product", data.id] })
     },
+    onError: (error) => {
+      console.error("Mutation error:", error);
+    }
   })
 }
 

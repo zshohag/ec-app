@@ -46,8 +46,6 @@ const userSchema = new Schema(
   { timestamps: true }
 );
 
-// Add index for better query performance
-//userSchema.index({ email: 1 });   //NO NEED
 
 const User = models.User || model("User", userSchema);
 export default User;
