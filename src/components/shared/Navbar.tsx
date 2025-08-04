@@ -247,20 +247,19 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Logo Section */}
+
           <div className="flex items-center gap-3">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 relative flex-shrink-0">
-                <Image
-                  src="/images/updateLogo.png"
-                  alt="Logo"
-                  fill
-                  className="object-contain rounded"
-                  sizes="(max-width: 640px) 48px, 56px"
-                  priority
-                />
-              </div>
+              <Image
+                src="/images/updateLogo.png"
+                alt="Logo"
+                width={156}
+                height={156}
+                className="object-contain rounded "
+                priority
+              />
+
               <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2">
-                {/* <h1 className="text-lg sm:text-2xl font-bold text-gray-900 leading-tight">Moshiur Tamim LLC</h1> */}
                 <Badge
                   variant="secondary"
                   className="hidden sm:inline-flex text-xs"
@@ -270,7 +269,6 @@ export function Navbar() {
               </div>
             </Link>
           </div>
-
           {/* Desktop Navigation - Show on medium and large screens */}
           <nav className="hidden md:flex items-center gap-6">
             {navigationLinks.map((link) => (
@@ -283,7 +281,6 @@ export function Navbar() {
               </Link>
             ))}
           </nav>
-
           {/* Right Side Actions */}
           <div className="flex items-center gap-2 sm:gap-4">
             {/* Cart Icon */}
@@ -363,14 +360,13 @@ export function Navbar() {
                   <SheetTitle className="flex items-center gap-3">
                     <div className="w-10 h-10 relative">
                       <Image
-                        src="/images/bglogo.png"
+                        src="/images/updateLogo.png"
                         alt="Logo"
                         fill
                         className="object-contain rounded"
                         sizes="40px"
                       />
                     </div>
-                    Moshiur Tamim LLC
                   </SheetTitle>
                 </SheetHeader>
 
