@@ -562,16 +562,27 @@ export function Navbar() {
                   <span className="sr-only">Toggle menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <SheetContent side="right" className="w-[240px] sm:w-[340px]">
                 <SheetHeader>
-                  <SheetTitle className="flex items-center justify-center">
+                  <SheetTitle className="flex items-center">
                     {/* Mobile menu logo - larger horizontal version */}
-                    <div className="h-16 w-auto flex-shrink-0">
+                    {/* <div className="h-16 w-auto flex-shrink-0">
                       <Image
                         src="/images/updateLogo.png"
                         alt="MOSHIUR TAMIM LLC"
                         width={240}
                         height={80}
+                        className="h-full w-auto object-contain"
+                        priority
+                      />
+                    </div> */}
+
+                    <div className="h-8 w-auto flex-shrink-0">
+                      <Image
+                        src="/images/updateLogo.png"
+                        alt="MOSHIUR TAMIM LLC"
+                        width={120}
+                        height={48}
                         className="h-full w-auto object-contain"
                         priority
                       />
