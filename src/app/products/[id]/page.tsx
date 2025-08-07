@@ -779,13 +779,29 @@ export default function ProductDetailsPage() {
             </div>
             {/* Add to Cart Button */}
             <div className="flex-1">
-              <Button
+              {/* <Button
                 disabled={!product.inStock || product.badge === "Coming Soon"}
                 onClick={handleAddToCart}
                 className="w-full text-lg px-6 py-5 bg-black text-white"
               >
                 <ShoppingCart className="mr-2 w-5 h-5" />
                 Add to Cart – ${(product.price * quantity).toFixed(2)}
+              </Button> */}
+              <Button
+                disabled={!product.inStock || product.badge === "Coming Soon"}
+                onClick={handleAddToCart}
+                className="w-full text-lg px-6 py-5 bg-black text-white"
+              >
+                {product.badge === "Coming Soon" ? (
+                  "Coming Soon"
+                ) : !product.inStock ? (
+                  "Out of Stock"
+                ) : (
+                  <>
+                    <ShoppingCart className="mr-2 w-5 h-5" />
+                    Add to Cart – ${(product.price * quantity).toFixed(2)}
+                  </>
+                )}
               </Button>
             </div>
           </div>

@@ -59,14 +59,6 @@ export function ProductCard({ product, onViewDetails }: ProductCardProps) {
               {product.badge}
             </Badge>
           )}
-
-          {/* {!product.inStock && (
-            <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-              <Badge variant="destructive" className="text-lg px-4 py-2">
-                Out of Stock
-              </Badge>
-            </div>
-          )} */}
           {/*  */}
           {(!product.inStock || product.badge === "Coming Soon") && (
             <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-10">
@@ -140,13 +132,25 @@ export function ProductCard({ product, onViewDetails }: ProductCardProps) {
       {/* Buttons Section */}
       <div className="px-2 pb-4 flex flex-col gap-2 mt-auto">
         <div className="flex gap-2">
-          <Button
+          {/* <Button
             onClick={handleAddToCart}
             disabled={!product.inStock || product.badge === "Coming Soon"}
             className="flex-1"
           >
             <ShoppingCart className="w-4 h-4 mr-2" />
             Add to Cart
+          </Button> */}
+          <Button
+            onClick={handleAddToCart}
+            disabled={!product.inStock || product.badge === "Coming Soon"}
+            className="flex-1"
+          >
+            <ShoppingCart className="w-4 h-4 mr-2" />
+            {product.badge === "Coming Soon"
+              ? "Coming Soon"
+              : !product.inStock
+              ? "Out of Stock"
+              : "Add to Cart"}
           </Button>
           <Button
             variant="outline"
